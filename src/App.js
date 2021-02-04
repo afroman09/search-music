@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
-import Tracktest from "./components/Tracktest";
+// import ApiTest from "./components/test/ApiTest";
+import Search from "./components/Templates/Search";
 
 const App = () => {
   return (
     <div className="App">
-      <Tracktest />
+      {/* <ApiTest /> */}
+      {/* <Home /> */}
+      <Search />
     </div>
   );
 };

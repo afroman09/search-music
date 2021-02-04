@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Dropdown from "./Atoms/Dropdown";
-import Listbox from "./Organisms/Listbox";
-import Detail from "./Organisms/Detail";
-import { Credentials } from "./Credentials";
+import Dropdown from "../Atoms/Dropdown";
+import Listbox from "../Organisms/Listbox";
+import Detail from "../Organisms/Detail";
+import { Credentials } from "../Credentials";
 import axios from "axios";
 
 const Home = () => {
@@ -19,13 +19,12 @@ const Home = () => {
     selectedPlaylist: "",
     listOfPlaylistFromAPI: [],
   });
-  const [tracks, setTracks] = useState({
-    selectedTrack: "",
-    listOfTracksFromAPI: [],
-  });
-  const [trackDetail, setTrackDetail] = useState(null);
+  const [tracks, setTracks] = useState({selectedTrack: '', listOfTracksFromAPI: []})
+  const [trackDetail, setTrackDetail] = useState(null)
 
   useEffect(() => {
+    // tokenを発行し、権限を付与
+    // 付与されたTokenをuseStateのtokenに代入し、値を保持
     axios("https://accounts.spotify.com/api/token", {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -35,23 +34,27 @@ const Home = () => {
       data: "grant_type=client_credentials",
       method: "POST",
     }).then((tokenResponse) => {
+      console.log(tokenResponse.data.access_token);
       setToken(tokenResponse.data.access_token);
 
+      // 付与されたtokenを使い、ジャンルにアクセス
+      // 取得したジャンルをgenreに適用
       axios("https://api.spotify.com/v1/browse/categories?locale=sv_US", {
         method: "GET",
         headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
-      }).then((genreResponse) => {
+      }).then((genreReaponse) => {
         setGenres({
-          selectedGenre: genres.selectedGenre,
-          listOfGenresFromAPI: genreResponse.data.categories.items,
+          selectedGenres: genres.selectedGenres,
+          listOfGenresFromAPI: genreReaponse.data.categories.items,
         });
       });
     });
-  }, [genres.selectedGenre, spotify.ClientId, spotify.ClientSecret]);
+  }, [genres.selectedGenres, spotify.ClientId, spotify.ClientSecret]);
 
+  // 取得したデータを各値に代入
   const genreChanged = (val) => {
     setGenres({
-      selectedGenre: val,
+      selectedGenres: val,
       listOfGenresFromAPI: genres.listOfGenresFromAPI,
     });
 
@@ -59,7 +62,7 @@ const Home = () => {
       `https://api.spotify.com/v1/browse/categories/${val}/playlists?limit=10`,
       {
         method: "GET",
-        headers: { Authorization: "Bearer " + token },
+        headers: { 'Authorization': "Bearer " + token },
       }
     ).then((playlistResponse) => {
       setPlaylist({
@@ -71,76 +74,58 @@ const Home = () => {
     console.log(val);
   };
 
-  const playlistChanged = (val) => {
-    console.log(val);
+  const playlistChanged = val => {
     setPlaylist({
       selectedPlaylist: val,
       listOfPlaylistFromAPI: playlist.listOfPlaylistFromAPI,
     });
   };
 
-  // ジャンル、プレイリストの値を元に曲を検索
-
-  const buttonClicked = (e) => {
+  const buttonClicked = e => {
     e.preventDefault();
 
-    axios(
-      `https://api.spotify.com/v1/playlists/${playlist.selectedPlaylist}/tracks?limit=10`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
+    axios(`https://api.spotify.com/v1/playlists/${playlist.selectedPlaylist}/tracks?limit=10`, {
+      method: 'GET',
+      headers: {
+        'Authorization' : 'Bearer ' + token
       }
-    ).then((tracksResponse) => {
+    })
+    .then(tracksResponse => {
       setTracks({
         selectedTrack: tracks.selectedTrack,
-        listOfTracksFromAPI: tracksResponse.data.items,
-      });
+        listOfTracksFromAPI: tracksResponse.data.items
+      })
     });
-  };
+  }
 
-  // 取得した曲を配列に追加
-  // それをも元にクリックボタンを押されたら配列を展開
+  const listboxClicked = val => {
 
-  const listboxClicked = (val) => {
     const currentTracks = [...tracks.listOfTracksFromAPI];
 
-    const trackInfo = currentTracks.filter((t) => t.track.id === val);
+    const trackInfo = currentTracks.filter(t => t.track.id === val);
 
-    setTrackDetail(trackInfo[0].track);
-  };
+    setTrackDetail(trackInfo[0].track)
+  }
 
   return (
-    <div className="container">
-      <form onSubmit={buttonClicked}>
+    <form onSubmit={buttonClicked}>
+      <div className="container">
         <Dropdown
-          label="Genre :"
           options={genres.listOfGenresFromAPI}
-          selectedValue={genres.selectedGenre}
+          selectedValue={genres.selectedGenres}
           changed={genreChanged}
         />
         <Dropdown
-          label="Playlist :"
           options={playlist.listOfPlaylistFromAPI}
           selectedValue={playlist.selectedPlaylist}
           changed={playlistChanged}
         />
-        <div className="col-sm-6 row form-group px-0">
-          <button type="submit" className="btn btn-success col-sm-12">
-            Search
-          </button>
-        </div>
-        <div className="row">
-          <Listbox
-            items={tracks.listOfTracksFromAPI}
-            clicked={listboxClicked}
-          />
-          {trackDetail && <Detail {...trackDetail} />}
-        </div>
-      </form>
-    </div>
+        <button type="submit">search</button>
+        <Listbox items={tracks.listOfTracksFromAPI} clicked={listboxClicked}/>
+        {trackDetail && <Detail {...trackDetail} />}
+      </div>
+    </form>
   );
-};
+}
 
 export default Home;
