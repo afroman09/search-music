@@ -77,7 +77,6 @@ const Search = () => {
   return (
     <div>
       <Header />
-      {/* {artists.name} */}
     </div>
   );
 };
