@@ -1,6 +1,6 @@
-import React,{useState} from 'react'
-import SearchInput from '../Atoms/SearchInput'
-import SearchButton from '../Atoms/SearchButton'
+import React,{ useState } from 'react'
+// import SearchInput from '../Atoms/SearchInput'
+// import SearchButton from '../Atoms/SearchButton'
 import { useHistory } from 'react-router-dom'
 
 const Header = () => {
@@ -16,8 +16,13 @@ const Header = () => {
     return (
         <div>
             <form onSubmit={ handleSubmit }>
-            <SearchInput onChange={e => setTerm(e.target.value)} value={term}/>
-            <SearchButton/>
+            <input 
+            type="text" 
+            placeholder="検索" 
+            // 値が変更されるたびにstateを更新
+            onChange={(e) => setTerm(e.target.value)} 
+            value={term}/>
+            <button type="submit">🔍</button>
             </form>
         </div>
     )

@@ -1,15 +1,16 @@
 import React from "react";
-import "./App.css";
-// import ApiTest from "./components/test/ApiTest";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Home from "./components/Templates/Home";
 import Search from "./components/Templates/Search";
 
 const App = () => {
   return (
-    <div className="App">
-      {/* <ApiTest /> */}
-      {/* <Home /> */}
-      <Search />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/search" component={Search} />
+      </Switch>
+    </Router>
   );
 };
 
