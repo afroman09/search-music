@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
 import Header from "../Molecules/Header";
 import { Credentials } from "../Credentials";
@@ -8,16 +10,14 @@ const Search = () => {
   // test
   const spotify = Credentials();
 
-  console.log("RENDERING APP.JS");
-
   const [token, setToken] = useState("");
-  const [artists, setArtists] = useState({
-    selectedArtists: '',
-    listOfArtistsFromAPI: [],
-});
+  const [trackContents, setTracksContents] = useState({
+      tracksId: '',
+      tracksData: ''
+  });
+  const [tracks, setTracks] = useState('')
 
   const location = useLocation();
-  //   const spotifyURL = 'https://api.spotify.com/v1'
 
   useEffect(() => {
 
@@ -44,35 +44,40 @@ const Search = () => {
       // 付与されたtokenを使い、ジャンルにアクセス
       // 取得したジャンルをgenreに適用
       // eslint-disable-next-line no-undef
-      axios(`https://api.spotify.com/v1/search?q=${queryResult}`, {
+      axios(`https://api.spotify.com/v1/audio-features?ids=${queryResult}`, {
         method: "GET",
         headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
-        params: {
-          type: "artist",
-          limit: 50,
-        },
-      }).then((artistsReaponse) => {
-        setArtists({
-            selectedArtists: artists.selectedArtists,
-            listOfArtistsFromAPI: artistsReaponse.data.artists.items,
-        })
+      }).then((tracksReaponse) => {
+        setTracksContents({
+            tracksId: tracksReaponse.data.id,
+            tracksData: tracksReaponse.data,
+        }
+        )
       });
+      searchTrack();
     });
-  }, [
-    artists.selectedArtists,
-    spotify.ClientId,
-    spotify.ClientSecret,
-    location,
-  ]);
+  }, [location.search, spotify.ClientId, spotify.ClientSecret]);
 
   // test end
+
+  const searchTrack = (val) => {
+    axios(
+        `https://api.spotify.com/v1/tracks?ids=${tracks.tracksId}"`,
+        {
+          method: "GET",
+          headers: { 'Authorization': "Bearer " + token },
+        }
+      ).then((tracksReaponse) => {
+         setTracks(tracksReaponse.data)
+      });
+  
+      console.log(val);
+  }
 
   return (
     <div>
       <Header />
-      <h2>
-        {artists.selectedArtists}
-      </h2>
+      {/* {artists.name} */}
     </div>
   );
 };
