@@ -3,7 +3,7 @@ import React,{ useState } from 'react'
 // import SearchButton from '../Atoms/SearchButton'
 import { useHistory } from 'react-router-dom'
 
-const Header = () => {
+const Header = (props) => {
 
     const [term, setTerm] = useState('')
     const history = useHistory()

@@ -3,7 +3,9 @@ import Dropdown from "../Atoms/Dropdown";
 import Listbox from "../Organisms/Listbox";
 import Detail from "../Organisms/Detail";
 import { Credentials } from "../Credentials";
+import Search from './Search'
 import axios from "axios";
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const spotify = Credentials();
@@ -124,6 +126,7 @@ const Home = () => {
         <Listbox items={tracks.listOfTracksFromAPI} clicked={listboxClicked}/>
         {trackDetail && <Detail {...trackDetail} />}
       </div>
+      <Link to='/Search'>Search</Link>
     </form>
   );
 }

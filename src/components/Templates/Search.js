@@ -11,21 +11,14 @@ const Search = () => {
   const spotify = Credentials();
 
   const [token, setToken] = useState("");
-  const [trackContents, setTracksContents] = useState({
-      tracksId: '',
-      tracksData: ''
-  });
-  const [tracks, setTracks] = useState('')
+  const [trackContents, setTracksContents] = useState("");
 
   const location = useLocation();
 
   useEffect(() => {
-
-    
-        const searchParams = new URLSearchParams(location.search);
-        const queryResult = searchParams.get("query");
-        console.log(queryResult);
-
+    const searchParams = new URLSearchParams(location.search);
+    const queryResult = searchParams.get("query");
+    console.log(queryResult);
 
     // tokenを発行し、権限を付与
     // 付与されたTokenをuseStateのtokenに代入し、値を保持
@@ -48,35 +41,24 @@ const Search = () => {
         method: "GET",
         headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
       }).then((tracksReaponse) => {
-        setTracksContents({
-            tracksId: tracksReaponse.data.id,
-            tracksData: tracksReaponse.data,
-        }
-        )
+        setTracksContents(tracksReaponse.data.audio_features);
       });
-      searchTrack();
     });
   }, [location.search, spotify.ClientId, spotify.ClientSecret]);
 
   // test end
 
-  const searchTrack = (val) => {
-    axios(
-        `https://api.spotify.com/v1/tracks?ids=${tracks.tracksId}"`,
-        {
-          method: "GET",
-          headers: { 'Authorization': "Bearer " + token },
-        }
-      ).then((tracksReaponse) => {
-         setTracks(tracksReaponse.data)
-      });
-  
-      console.log(val);
-  }
+  const trackResult = trackContents[0];
+  const trackTest = {...trackResult};
+
 
   return (
     <div>
       <Header />
+  <h2>{trackTest.danceability}</h2>
+  <h2>{trackTest.mode}</h2>
+  <h2>{trackTest.key}</h2>
+  <h2>{trackTest.id}</h2>
     </div>
   );
 };
