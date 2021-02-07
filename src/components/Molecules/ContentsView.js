@@ -1,11 +1,20 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 
-const ContentsView = (props) => {
+const ContentsView = props => {
   return (
     <div>
-      <p>danceability(踊りやすさ) : {props.danceability}</p>
-      <p>mode(メジャーorマイナー) : {props.mode}</p>
-      <p>key(楽曲のキー) : {props.trackKey}</p>
+      <img src={props.searchContents.trackImg} />
+      <p>
+        {props.searchContents.artistName}
+        {props.searchContents.trackPreviewURL}
+        {props.searchContents.trackName}
+      </p>
+      <p>
+        {props.trackInformation.danceability}
+        {props.trackInformation.mode}
+        {props.trackInformation.trackKey}
+      </p>
     </div>
   );
 };
