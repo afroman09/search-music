@@ -1,10 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable array-callback-return */
 import React, { useState, useEffect } from "react";
 import Header from "../Molecules/Header";
 import { Credentials } from "../Credentials";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
+import ContentsView from "../Molecules/ContentsView";
+import ReturnBtn from "../Atoms/ReturnBtn";
 
 const Search = () => {
   // test
@@ -54,10 +54,12 @@ const Search = () => {
   return (
     <div>
       <Header />
-        <h2>{trackTest.danceability}</h2>
-        <h2>{trackTest.mode}</h2>
-        <h2>{trackTest.key}</h2>
-        <h2>{trackTest.id}</h2>
+      <ContentsView 
+        danceability={trackTest.danceability}
+        mode={trackTest.mode}
+        trackKey={trackTest.key}
+      />
+      <ReturnBtn />
     </div>
   );
 };
