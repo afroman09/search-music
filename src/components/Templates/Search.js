@@ -51,14 +51,13 @@ const Search = () => {
   const trackResult = trackContents[0];
   const trackTest = {...trackResult};
 
-
   return (
     <div>
       <Header />
-  <h2>{trackTest.danceability}</h2>
-  <h2>{trackTest.mode}</h2>
-  <h2>{trackTest.key}</h2>
-  <h2>{trackTest.id}</h2>
+        <h2>{trackTest.danceability}</h2>
+        <h2>{trackTest.mode}</h2>
+        <h2>{trackTest.key}</h2>
+        <h2>{trackTest.id}</h2>
     </div>
   );
 };
