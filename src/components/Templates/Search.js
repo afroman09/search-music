@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
-import Header from "../Molecules/Header";
 import { Credentials } from "../Credentials";
 import axios from "axios";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ContentsView from "../Molecules/ContentsView";
+import Header from "../Molecules/Header";
 
 const Search = () => {
   const spotify = Credentials();
 
   const [token, setToken] = useState("");
-  const [trackInformation, setTracksInformation] = useState(
-  //   {
-  //   danceability: "",
-  //   trackKey: "",
-  //   mode: "",
-  // }
-  ''
-  );
+  const [trackInformation, setTracksInformation] = useState("");
   const [searchContents, setSearchContents] = useState({
     artistName: "",
     artistId: "",
@@ -24,7 +17,7 @@ const Search = () => {
     trackImg: "",
     trackName: "",
   });
-  const [similarContents, setSimilarContents] = useState("");
+  const [similarInformation, setSimilarInformation] = useState([]);
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -43,7 +36,6 @@ const Search = () => {
       data: "grant_type=client_credentials",
       method: "POST",
     }).then((tokenResponse) => {
-      console.log(tokenResponse.data.access_token);
       setToken(tokenResponse.data.access_token);
 
       /* アクセスTokenを発行 END */
@@ -52,7 +44,7 @@ const Search = () => {
 
       axios(`https://api.spotify.com/v1/tracks/${queryResult}`, {
         method: "GET",
-        headers: { Authorization: "Bearer " + token },
+        headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
       })
         .then((trackContentsReaponse) => {
           setSearchContents({
@@ -74,17 +66,10 @@ const Search = () => {
       // 取得したジャンルをgenreに適用
       axios(`https://api.spotify.com/v1/audio-features?ids=${queryResult}`, {
         method: "GET",
-        headers: { Authorization: "Bearer " + token },
+        headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
       })
         .then((tracksReaponse) => {
-          setTracksInformation(
-          //   {
-          //   danceability: tracksReaponse.data.audio_features[0].danceability,
-          //   trackKey: tracksReaponse.data.audio_features[0].key,
-          //   mode: tracksReaponse.data.audio_features[0].mode,
-          // }
-          tracksReaponse.data.audio_features[0]
-          );
+          setTracksInformation(tracksReaponse.data.audio_features[0]);
         })
         .catch((err) => {
           console.log("err:", err);
@@ -94,29 +79,26 @@ const Search = () => {
 
       /* 似ている曲を取得 START */
 
-      axios(
-        `https://api.spotify.com/v1/recommendations?limit=3&market=US`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Bearer " + token,
-          },
-          params: {
-            seed_tracks: queryResult,
-            target_danceability: trackInformation.danceability,
-            target_energy: trackInformation.energy,
-            target_key: trackInformation.key,
-            target_loudness: trackInformation.loudness,
-            target_mode: trackInformation.mode,
-            min_popularity: 0,
-            target_tempo: trackInformation.tempo,  
-            target_time_signature: trackInformation.signature,
-            target_valence: trackInformation.valence
-          }
-        }
-      )
-        .then((similarContentsReaponse) => {
-          setSimilarContents(similarContentsReaponse.data);
+      axios(`https://api.spotify.com/v1/recommendations?limit=3&market=US`, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + tokenResponse.data.access_token,
+        },
+        params: {
+          seed_tracks: queryResult,
+          target_danceability: trackInformation.danceability,
+          target_energy: trackInformation.energy,
+          target_key: trackInformation.key,
+          target_loudness: trackInformation.loudness,
+          target_mode: trackInformation.mode,
+          min_popularity: 0,
+          target_tempo: trackInformation.tempo,
+          target_time_signature: trackInformation.signature,
+          target_valence: trackInformation.valence,
+        },
+      })
+        .then((similarReaponse) => {
+          setSimilarInformation(similarReaponse.data.tracks);
         })
         .catch((err) => {
           console.log("err:", err);
@@ -125,9 +107,7 @@ const Search = () => {
       /* 似ている曲を取得 END */
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    queryResult,
-  ]);
+  }, [queryResult,spotify.ClientId, spotify.ClientSecret]);
 
   return (
     <div>
@@ -135,11 +115,8 @@ const Search = () => {
       <ContentsView
         searchContents={searchContents}
         trackInformation={trackInformation}
-        similarContents={similarContents}
+        similarInformation={similarInformation}
       />
-      <Link to="/">
-        <button>TOP</button>
-      </Link>
     </div>
   );
 };
