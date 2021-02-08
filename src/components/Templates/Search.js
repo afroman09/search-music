@@ -54,8 +54,8 @@ const Search = () => {
         .then((tracksReaponse) => {
           setTracksInformation({
             danceability: tracksReaponse.data.audio_features[0].danceability,
-            name: tracksReaponse.data.audio_features[0].mode,
-            key: tracksReaponse.data.audio_features[0].key,
+            mode: tracksReaponse.data.audio_features[0].mode,
+            trackKey: tracksReaponse.data.audio_features[0].key,
           });
         })
         .catch((err) => {
