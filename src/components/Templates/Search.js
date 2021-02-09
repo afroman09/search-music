@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Credentials } from "../Credentials";
 import axios from "axios";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import ContentsView from "../Molecules/ContentsView";
 import Header from "../Molecules/Header";
+import SimilarPage from "../Molecules/SimilarPage";
 
 const Search = () => {
   const spotify = Credentials();
@@ -16,11 +17,6 @@ const Search = () => {
     trackPreviewURL: "",
     trackImg: "",
     trackName: "",
-  });
-  const [similarInformation, setSimilarInformation] = useState({
-    firstTrack:'',
-    secondTrack:'',
-    thirdTrack:'',
   });
 
   const location = useLocation();
@@ -80,40 +76,6 @@ const Search = () => {
         });
 
       /* 楽曲情報を取得 END */
-
-      /* 似ている曲を取得 START */
-
-      axios(`https://api.spotify.com/v1/recommendations?limit=3&market=US`, {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + tokenResponse.data.access_token,
-        },
-        params: {
-          seed_tracks: queryResult,
-          target_danceability: trackInformation.danceability,
-          target_energy: trackInformation.energy,
-          target_key: trackInformation.key,
-          target_loudness: trackInformation.loudness,
-          target_mode: trackInformation.mode,
-          min_popularity: 0,
-          target_tempo: trackInformation.tempo,
-          target_time_signature: trackInformation.signature,
-          target_valence: trackInformation.valence,
-        },
-      })
-        .then((similarReaponse) => {
-          setSimilarInformation({
-            firstTrack: similarReaponse.data.tracks[0],
-            secondTrack: similarReaponse.data.tracks[1],
-            thirdTrack: similarReaponse.data.tracks[2],
-          });
-          console.log(similarInformation.firstTrack.album)
-        })
-        .catch((err) => {
-          console.log("err:", err);
-        });
-
-      /* 似ている曲を取得 END */
     });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryResult,spotify.ClientId, spotify.ClientSecret]);
@@ -124,8 +86,17 @@ const Search = () => {
       <ContentsView
         searchContents={searchContents}
         trackInformation={trackInformation}
-        similarInformation={similarInformation}
+        // similarInformation={similarInformation}
       />
+      <h3>【 {searchContents.trackName} 】に似た曲はこちら</h3>
+      <SimilarPage 
+        token={token}
+        trackInformation={trackInformation}
+        queryResult={queryResult}
+      />
+      <Link to="/">
+        <button>HOME</button>
+      </Link>
     </div>
   );
 };
