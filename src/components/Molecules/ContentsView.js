@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import ReactAudioPlayer from "react-audio-player";
-import { Link } from "react-router-dom";
 import Style from "./ContentsView.module.scss";
 
 const ContentsView = (props) => {
@@ -37,30 +36,6 @@ const ContentsView = (props) => {
           <li>tempo(BPM) : {props.trackInformation.tempo}</li>
         </ul>
       </div>
-      <h3>【 {props.searchContents.trackName} 】に似た曲はこちら</h3>
-      <div className={Style.wrapper}>
-        <p>{props.similarInformation.firstTrack.name}</p>
-        <ReactAudioPlayer
-          className={Style.audio}
-          src={props.similarInformation.firstTrack.preview_url}
-          controls
-        />
-        <p>{props.similarInformation.secondTrack.name}</p>
-        <ReactAudioPlayer
-          className={Style.audio}
-          src={props.similarInformation.secondTrack.preview_url}
-          controls
-        />
-        <p>{props.similarInformation.thirdTrack.name}</p>
-        <ReactAudioPlayer
-          className={Style.audio}
-          src={props.similarInformation.thirdTrack.preview_url}
-          controls
-        />
-      </div>
-      <Link to="/">
-        <button className={Style.btn}>HOME</button>
-      </Link>
     </div>
   );
 };
