@@ -17,7 +17,11 @@ const Search = () => {
     trackImg: "",
     trackName: "",
   });
-  const [similarInformation, setSimilarInformation] = useState([]);
+  const [similarInformation, setSimilarInformation] = useState({
+    firstTrack:'',
+    secondTrack:'',
+    thirdTrack:'',
+  });
 
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
@@ -98,7 +102,12 @@ const Search = () => {
         },
       })
         .then((similarReaponse) => {
-          setSimilarInformation(similarReaponse.data.tracks);
+          setSimilarInformation({
+            firstTrack: similarReaponse.data.tracks[0],
+            secondTrack: similarReaponse.data.tracks[1],
+            thirdTrack: similarReaponse.data.tracks[2],
+          });
+          console.log(similarInformation.firstTrack.album)
         })
         .catch((err) => {
           console.log("err:", err);

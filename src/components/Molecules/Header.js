@@ -27,7 +27,7 @@ const Header = () => {
           value={term}
         />
         <button className={Style.btn} type="submit">
-          START
+          SEARCH
         </button>
       </form>
     </div>
