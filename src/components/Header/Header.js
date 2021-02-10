@@ -21,7 +21,7 @@ const Header = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="検索"
+          placeholder="IDを入力してください"
           // 値が変更されるたびにstateを更新
           onChange={(e) => setTerm(e.target.value)}
           value={term}

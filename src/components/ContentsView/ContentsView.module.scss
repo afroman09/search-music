@@ -1,0 +1,32 @@
+.container {
+  .maincontents{
+    margin: 50px auto;
+    width: 50%;
+  }
+  .img {
+    width: 40vh;
+    float: left;
+  }
+  h3 {
+    float: left;
+    letter-spacing: 3px;
+  }
+  .audio {
+    outline: none;
+    width: 40vh;
+    height: 10vh;
+  }
+  
+  .wrapper {
+    clear: both;
+    width: 50%;
+    margin: 0 auto;
+    ul {
+      list-style: none;
+      padding: 5px;
+      font-size: 18px;
+      .li {
+      }
+    }
+  }
+}

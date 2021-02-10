@@ -49,22 +49,25 @@ const SimilarPage = (props) => {
       .then((firstrReaponse) => {
         setSimilarFirstTrack({
           firstTrackName: firstrReaponse.data.tracks[0].name,
-          firstTrackArtists: firstrReaponse.data.tracks[0].album.artists[0].name,
+          firstTrackArtists:
+            firstrReaponse.data.tracks[0].album.artists[0].name,
           firstTrackImg: firstrReaponse.data.tracks[0].album.images[1].url,
           firstTrackPreview_url: firstrReaponse.data.tracks[0].preview_url,
-        })
+        });
         setSimilarSecondTrack({
           secondTrackName: firstrReaponse.data.tracks[1].name,
-          secondTrackArtists: firstrReaponse.data.tracks[1].album.artists[0].name,
+          secondTrackArtists:
+            firstrReaponse.data.tracks[1].album.artists[0].name,
           secondTrackImg: firstrReaponse.data.tracks[1].album.images[1].url,
           secondTrackPreview_url: firstrReaponse.data.tracks[1].preview_url,
-        })
+        });
         setSimilarThirdTrack({
           thirdTrackName: firstrReaponse.data.tracks[2].name,
-          thirdTrackArtists: firstrReaponse.data.tracks[2].album.artists[0].name,
+          thirdTrackArtists:
+            firstrReaponse.data.tracks[2].album.artists[0].name,
           thirdTrackImg: firstrReaponse.data.tracks[2].album.images[1].url,
           thirdTrackPreview_url: firstrReaponse.data.tracks[2].preview_url,
-        })
+        });
       })
       .catch((err) => {
         console.log("err:", err);
@@ -79,38 +82,40 @@ const SimilarPage = (props) => {
 
   return (
     <div>
-      <button onClick={handleClick}>検索</button>
+      <button onClick={handleClick} className={Style.btn}>
+        表示
+      </button>
       <div className={Style.container}>
-        <p className={Style.wrapper}>
-        <img src={similarFirstTrack.firstTrackImg} />
-        <div>{similarFirstTrack.firstTrackName}</div>
-        <div>{similarFirstTrack.firstTrackArtists}</div>
-        <ReactAudioPlayer
-          className={Style.audio}
-          src={similarFirstTrack.firstTrackPreview_url}
-          controls
-        />
-        </p>
-        <p className={Style.wrapper}>
-        <img src={similarSecondTrack.secondTrackImg} />
-        <div>{similarSecondTrack.secondTrackName}</div>
-        <div>{similarSecondTrack.secondTrackArtists}</div>
-        <ReactAudioPlayer
-          className={Style.audio}
-          src={similarSecondTrack.secondTrackPreview_url}
-          controls
-        />
-        </p>
-        <p className={Style.wrapper}>
-        <img src={similarThirdTrack.thirdTrackImg} />
-        <div>{similarThirdTrack.thirdTrackName}</div>
-        <div>{similarThirdTrack.thirdTrackArtists}</div>
-        <ReactAudioPlayer
-          className={Style.audio}
-          src={similarThirdTrack.thirdTrackPreview_url}
-          controls
-        />
-        </p>
+        <div className={Style.wrapper}>
+          <img src={similarFirstTrack.firstTrackImg} />
+          <div>{similarFirstTrack.firstTrackArtists}</div>
+          <div>{similarFirstTrack.firstTrackName}</div>
+          <ReactAudioPlayer
+            className={Style.audio}
+            src={similarFirstTrack.firstTrackPreview_url}
+            controls
+          />
+        </div>
+        <div className={Style.wrapper}>
+          <img src={similarSecondTrack.secondTrackImg} />
+          <div>{similarSecondTrack.secondTrackArtists}</div>
+          <div>{similarSecondTrack.secondTrackName}</div>
+          <ReactAudioPlayer
+            className={Style.audio}
+            src={similarSecondTrack.secondTrackPreview_url}
+            controls
+          />
+        </div>
+        <div className={Style.wrapper}>
+          <img src={similarThirdTrack.thirdTrackImg} />
+          <div>{similarThirdTrack.thirdTrackArtists}</div>
+          <div>{similarThirdTrack.thirdTrackName}</div>
+          <ReactAudioPlayer
+            className={Style.audio}
+            src={similarThirdTrack.thirdTrackPreview_url}
+            controls
+          />
+        </div>
       </div>
     </div>
   );
