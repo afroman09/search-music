@@ -1,9 +1,8 @@
 .container {
   .img {
-    width: 30vh;
-    height: 30vh;
-    float: left;
-    text-align: center;
+    width: 50vh;
+    height: 50vh;
+    display: inline-block;
   }
   h3 {
     margin: 0;
@@ -15,7 +14,6 @@
   }
   .wrapper {
     ul {
-      display: inline-block;
       clear: both;
       list-style: none;
       padding: 0;

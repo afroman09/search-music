@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Credentials } from "../Credentials";
 import axios from "axios";
-import { useLocation, Link } from "react-router-dom";
-import ContentsView from "../Molecules/ContentsView";
-import Header from "../Molecules/Header";
-import SimilarPage from "../Molecules/SimilarPage";
+import { useLocation } from "react-router-dom";
+import ContentsView from "../ContentsView/ContentsView";
+import Header from "../Header/Header";
+import SimilarPage from "../SimilarPage/SimilarPage";
+import Footer from "../Footer/Footer";
 
 const Search = () => {
   const spotify = Credentials();
@@ -62,8 +63,7 @@ const Search = () => {
       /* アーティスト情報を取得 END */
 
       /* 楽曲情報を取得 START */
-      // 付与されたtokenを使い、ジャンルにアクセス
-      // 取得したジャンルをgenreに適用
+
       axios(`https://api.spotify.com/v1/audio-features?ids=${queryResult}`, {
         method: "GET",
         headers: { Authorization: "Bearer " + tokenResponse.data.access_token },
@@ -77,8 +77,8 @@ const Search = () => {
 
       /* 楽曲情報を取得 END */
     });
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [queryResult,spotify.ClientId, spotify.ClientSecret]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryResult, spotify.ClientId, spotify.ClientSecret]);
 
   return (
     <div>
@@ -89,21 +89,14 @@ const Search = () => {
         // similarInformation={similarInformation}
       />
       <h3>【 {searchContents.trackName} 】に似た曲はこちら</h3>
-      <SimilarPage 
+      <SimilarPage
         token={token}
         trackInformation={trackInformation}
         queryResult={queryResult}
       />
-      <Link to="/">
-        <button>HOME</button>
-      </Link>
+      <Footer />
     </div>
   );
 };
 
 export default Search;
-
-// クリックされたら値を取得する関数を定義し、そこにトークン以外のaxiosを記述
-// APIファイルを作成し、処理を一つにまとめる？
-// 呼び出しの際は関数で呼び出す
-// Header→contentsViewに結果を渡すのが正しい流れ？＾

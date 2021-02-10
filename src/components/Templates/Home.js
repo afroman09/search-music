@@ -2,7 +2,7 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import TopImg from '../Img/Top-Img1.jpeg'
 import Style from './Home.module.scss'
-import Header from '../Molecules/Header'
+import Header from '../Header/Header.js'
 
 const Home = () => {
   return (
