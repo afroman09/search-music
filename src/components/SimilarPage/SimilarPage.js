@@ -79,7 +79,7 @@ const SimilarPage = (props) => {
 
   return (
     <div>
-      <button onClick={handleClick} className={Style.btn}>検索</button>
+      <button onClick={handleClick} className={Style.btn}>表示</button>
       <div className={Style.container}>
         <p className={Style.wrapper}>
         <img src={similarFirstTrack.firstTrackImg} />

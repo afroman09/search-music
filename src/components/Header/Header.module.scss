@@ -1,24 +1,37 @@
 .container {
-    text-align: center;
-    input {
-        outline: none;
-        border-radius: 100vh;
-        width: 200px;
-        height: 50px;
-        text-align: left;
-        letter-spacing: 2px;
-        font-size: 16px;
-    }
-    .btn {
-        border-radius: 100vh;
-        width: 200px;
-        height: 50px;
-        background-color: #1DB954;
-        font-size: 16px;
-        color: #fff;
+  text-align: center;
+  input {
+    border: none;  /* 枠線を消す */
+    outline: none;
+    border-radius: 5vh;
+    width: 40%;
+    height: 30px;
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+  .btn {
+    border: none;  /* 枠線を消す */
+    border-radius: 100vh;
+    width: 200px;
+    height: 50px;
+    background-color: #1DB954;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 700;
     &:hover {
-        opacity: 0.7;
-        cursor: pointer;
+      cursor: pointer;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+      background-color: #1ED760;
     }
+    ::before
+    {
+      border: none;  /* 枠線を消す */
+      outline: none;
     }
+  }
 }
