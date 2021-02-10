@@ -4,7 +4,7 @@
   outline: none;
   width: 200px;
   height: 50px;
-  background-color: #1DB954;
+  background-color: #1db954;
   font-size: 16px;
   color: #fff;
   font-weight: 700;
@@ -15,26 +15,31 @@
     box-sizing: border-box;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    background-color: #1ED760;
+    background-color: #1ed760;
   }
   ::before {
-    border: none;  /* 枠線を消す */
+    border: none; /* 枠線を消す */
     outline: none;
   }
 }
-.container {
-  width: 100%;
-  display: block;
-  position: relative;
+.container{
+  text-align: center;
+.wrapper {
+  display: inline-block;
+  margin: 0 auto;
+  letter-spacing: 2px;
+  padding: 10px;
+  div {
+    font-size: 14px;
+    padding: 5px;
+  }
   img {
-      position: absolute;
-      top: 200px;
+    width: 30vh;
   }
   audio {
     outline: none;
+    width: 30vh;
+    height: 10vh;
   }
-  .wrapper {
-    display: inline-block;
-    letter-spacing: 2px;
-  }
+}
 }

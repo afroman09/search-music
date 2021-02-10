@@ -1,39 +1,32 @@
 .container {
+  .maincontents{
+    margin: 50px auto;
+    width: 50%;
+  }
   .img {
-    width: 50vh;
-    height: 50vh;
-    display: inline-block;
+    width: 40vh;
+    float: left;
   }
   h3 {
-    margin: 0;
+    float: left;
     letter-spacing: 3px;
-    margin-bottom: 5px;
   }
   .audio {
     outline: none;
+    width: 40vh;
+    height: 10vh;
   }
+  
   .wrapper {
+    clear: both;
+    width: 50%;
+    margin: 0 auto;
     ul {
-      clear: both;
       list-style: none;
-      padding: 0;
+      padding: 5px;
+      font-size: 18px;
       .li {
-        float: left;
       }
-    }
-  }
-  .btn {
-    border-radius: 100vh;
-    width: 200px;
-    height: 50px;
-    background-color: #1db954;
-    font-size: 16px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    &:hover {
-      opacity: 0.9;
-      cursor: pointer;
     }
   }
 }

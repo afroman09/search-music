@@ -8,6 +8,7 @@ const ContentsView = (props) => {
 
   return (
     <div className={Style.container}>
+      <div className={Style.maincontents}>
       <img className={Style.img} src={props.searchContents.trackImg} />
       <div className={Style.textContents}>
         <h3>{props.searchContents.artistName}</h3>
@@ -18,22 +19,25 @@ const ContentsView = (props) => {
         src={props.searchContents.trackPreviewURL}
         controls
       />
+      </div>
       <div className={Style.wrapper}>
         <ul>
           <li>
-            danceability(踊りやすさ) : {props.trackInformation.danceability}
+            danceability : {props.trackInformation.danceability}
+            (踊りやすさ) 
           </li>
-          <li>energy(曲の過激さ) : {props.trackInformation.energy}</li>
-          <li>key(楽曲のキー) : {props.trackInformation.key}</li>
+          <li>energy : {props.trackInformation.energy} (曲の過激さ) </li>
+          <li>key : {props.trackInformation.key} (楽曲のキー)</li>
           <li>
-            loudness(音量・音圧（db）の平均値) :{" "}
+            loudness:{" "}
             {props.trackInformation.loudness}
+            (音量・音圧（db）の平均値) 
           </li>
           <li>
-            mode(調性 メジャー=1、マイナー=0) : {props.trackInformation.mode}
+            mode : {props.trackInformation.mode} (調性 メジャー=1、マイナー=0)
           </li>
-          <li>valence(明るさ) : {props.trackInformation.valence}</li>
-          <li>tempo(BPM) : {props.trackInformation.tempo}</li>
+          <li>valence : {props.trackInformation.valence} (明るさ)</li>
+          <li>tempo : {props.trackInformation.tempo} (BPM)</li>
         </ul>
       </div>
     </div>
