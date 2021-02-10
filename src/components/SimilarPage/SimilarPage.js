@@ -88,8 +88,10 @@ const SimilarPage = (props) => {
       <div className={Style.container}>
         <div className={Style.wrapper}>
           <img src={similarFirstTrack.firstTrackImg} />
-          <div>{similarFirstTrack.firstTrackArtists}</div>
-          <div>{similarFirstTrack.firstTrackName}</div>
+          <p className={Style.textArea}>
+          <div className={Style.artistsName}>{similarFirstTrack.firstTrackArtists}</div>
+          <div className={Style.trackName}>{similarFirstTrack.firstTrackName}</div>
+          </p>
           <ReactAudioPlayer
             className={Style.audio}
             src={similarFirstTrack.firstTrackPreview_url}
@@ -98,8 +100,10 @@ const SimilarPage = (props) => {
         </div>
         <div className={Style.wrapper}>
           <img src={similarSecondTrack.secondTrackImg} />
-          <div>{similarSecondTrack.secondTrackArtists}</div>
-          <div>{similarSecondTrack.secondTrackName}</div>
+          <p className={Style.textArea}>
+          <div className={Style.artistsName}>{similarSecondTrack.secondTrackArtists}</div>
+          <div className={Style.trackName}>{similarSecondTrack.secondTrackName}</div>
+          </p>
           <ReactAudioPlayer
             className={Style.audio}
             src={similarSecondTrack.secondTrackPreview_url}
@@ -108,8 +112,10 @@ const SimilarPage = (props) => {
         </div>
         <div className={Style.wrapper}>
           <img src={similarThirdTrack.thirdTrackImg} />
-          <div>{similarThirdTrack.thirdTrackArtists}</div>
-          <div>{similarThirdTrack.thirdTrackName}</div>
+          <p className={Style.textArea}>
+          <div className={Style.artistsName}>{similarThirdTrack.thirdTrackArtists}</div>
+          <div className={Style.trackName}>{similarThirdTrack.thirdTrackName}</div>
+          </p>
           <ReactAudioPlayer
             className={Style.audio}
             src={similarThirdTrack.thirdTrackPreview_url}

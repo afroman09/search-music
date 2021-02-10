@@ -26,19 +26,31 @@
   text-align: center;
 .wrapper {
   display: inline-block;
-  margin: 0 auto;
+  background-image: linear-gradient(rgba(0,0,0,.6),#121212);
   letter-spacing: 2px;
+  margin: 0 5px;
   padding: 10px;
+  max-width: 35vh;
+  .textArea {
+    height: 50px;
+  }
   div {
+    padding: 3px;
+  }
+  .artistsName{
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .trackName {
+    color: #b3b3b3;
     font-size: 14px;
-    padding: 5px;
   }
   img {
     width: 30vh;
   }
   audio {
     outline: none;
-    width: 30vh;
+    width: 35vh;
     height: 10vh;
   }
 }
