@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import ReactAudioPlayer from "react-audio-player";
 import Style from "./SimilarPage.module.scss";
@@ -7,6 +8,7 @@ import Style from "./SimilarPage.module.scss";
 const SimilarPage = (props) => {
   const [similarFirstTrack, setSimilarFirstTrack] = useState({
     firstTrackName: "",
+    firstTrackId: "",
     firstTrackArtists: "",
     firstTrackImg: "",
     firstTrackPreview_url: "",
@@ -14,6 +16,7 @@ const SimilarPage = (props) => {
 
   const [similarSecondTrack, setSimilarSecondTrack] = useState({
     secondTrackName: "",
+    secondTrackId: "",
     secondTrackArtists: "",
     secondTrackImg: "",
     secondTrackPreview_url: "",
@@ -21,12 +24,16 @@ const SimilarPage = (props) => {
 
   const [similarThirdTrack, setSimilarThirdTrack] = useState({
     thirdTrackName: "",
+    thirdTrackId: "",
     thirdTrackArtists: "",
     thirdTrackImg: "",
     thirdTrackPreview_url: "",
   });
 
   const handleClick = () => {
+
+    resetSimilarTrackURL();
+
     /* 似ている曲を取得 START */
     axios(`https://api.spotify.com/v1/recommendations?limit=3&market=US`, {
       method: "GET",
@@ -49,6 +56,7 @@ const SimilarPage = (props) => {
       .then((firstrReaponse) => {
         setSimilarFirstTrack({
           firstTrackName: firstrReaponse.data.tracks[0].name,
+          firstTrackId: firstrReaponse.data.tracks[0].id,
           firstTrackArtists:
             firstrReaponse.data.tracks[0].album.artists[0].name,
           firstTrackImg: firstrReaponse.data.tracks[0].album.images[1].url,
@@ -56,6 +64,7 @@ const SimilarPage = (props) => {
         });
         setSimilarSecondTrack({
           secondTrackName: firstrReaponse.data.tracks[1].name,
+          secondTrackId: firstrReaponse.data.tracks[1].id,
           secondTrackArtists:
             firstrReaponse.data.tracks[1].album.artists[0].name,
           secondTrackImg: firstrReaponse.data.tracks[1].album.images[1].url,
@@ -63,6 +72,7 @@ const SimilarPage = (props) => {
         });
         setSimilarThirdTrack({
           thirdTrackName: firstrReaponse.data.tracks[2].name,
+          thirdTrackId: firstrReaponse.data.tracks[2].id,
           thirdTrackArtists:
             firstrReaponse.data.tracks[2].album.artists[0].name,
           thirdTrackImg: firstrReaponse.data.tracks[2].album.images[1].url,
@@ -75,10 +85,11 @@ const SimilarPage = (props) => {
     /* 似ている曲を取得 END */
   };
 
-  useEffect(() => {
-    handleClick();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const resetSimilarTrackURL = () => {
+    setSimilarFirstTrack({firstTrackPreview_url: ""}) ,
+    setSimilarSecondTrack({secondTrackPreview_url: ""}) ,
+    setSimilarThirdTrack({thirdTrackPreview_url: ""}) 
+  }
 
   return (
     <div>

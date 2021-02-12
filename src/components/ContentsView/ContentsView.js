@@ -4,6 +4,7 @@ import ReactAudioPlayer from "react-audio-player";
 import Style from "./ContentsView.module.scss";
 
 const ContentsView = (props) => {
+
   return (
     <div className={Style.container}>
       <div className={Style.maincontents}>

@@ -26,6 +26,9 @@ const Search = () => {
   const queryResult = searchParams.get("query");
 
   useEffect(() => {
+
+    ResetSearchContentsURL()
+
     /* アクセスTokenを発行 START */
     // tokenを発行し、権限を付与
     // 付与されたTokenをuseStateのtokenに代入し、値を保持
@@ -78,8 +81,20 @@ const Search = () => {
 
       /* 楽曲情報を取得 END */
     });
+
+    if( searchContents.trackPreviewURL === "") {
+      
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryResult, spotify.ClientId, spotify.ClientSecret]);
+
+  const ResetSearchContentsURL = () =>  {
+    setSearchContents({
+      trackPreviewURL: "",
+    })
+  }
+
 
   return (
     <div>
