@@ -85,6 +85,7 @@ const SimilarPage = (props) => {
     /* 似ている曲を取得 END */
   };
 
+  // トラックURLを初期化
   const resetSimilarTrackURL = () => {
     setSimilarFirstTrack({firstTrackPreview_url: ""}) ,
     setSimilarSecondTrack({secondTrackPreview_url: ""}) ,
