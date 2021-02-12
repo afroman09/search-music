@@ -2,7 +2,7 @@
   text-align: center;
   margin-top: 50px;
   input {
-    border: none;  /* 枠線を消す */
+    border: none;
     outline: none;
     border-radius: 5vh;
     width: 40%;
@@ -12,7 +12,7 @@
     font-size: 14px;
   }
   .btn {
-    border: none;  /* 枠線を消す */
+    border: none;
     border-radius: 100vh;
     width: 200px;
     height: 50px;
@@ -31,7 +31,7 @@
     }
     ::before
     {
-      border: none;  /* 枠線を消す */
+      border: none;
       outline: none;
     }
   }

@@ -17,7 +17,6 @@ const ContentsView = (props) => {
               {props.searchContents.trackName}
             </div>
           </p>
-          <div className={Style.wrapper}>
             <ul>
               <li>
                 danceability : {props.trackInformation.danceability}
@@ -36,7 +35,6 @@ const ContentsView = (props) => {
               <li>valence : {props.trackInformation.valence} (明るさ)</li>
               <li>tempo : {props.trackInformation.tempo} (BPM)</li>
             </ul>
-          </div>
           <ReactAudioPlayer
             className={Style.audio}
             src={props.searchContents.trackPreviewURL}

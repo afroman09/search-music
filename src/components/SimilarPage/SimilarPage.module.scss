@@ -1,4 +1,6 @@
 .btn {
+  margin-left: 15vh;
+  margin-bottom: 5vh;
   border-radius: 100vh;
   border: none;
   outline: none;
@@ -18,7 +20,7 @@
     background-color: #1ed760;
   }
   ::before {
-    border: none; /* 枠線を消す */
+    border: none;
     outline: none;
   }
 }
@@ -31,6 +33,11 @@
   margin: 0 5px;
   padding: 10px;
   max-width: 35vh;
+  &:hover {
+    transition: all 0.3s;
+    background-color: #b3b3b3;
+    cursor: pointer;
+  }
   .textArea {
     height: 50px;
   }
