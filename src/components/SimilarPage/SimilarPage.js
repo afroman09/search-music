@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-expressions */
+/* eslint-disable no-sequences */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ReactAudioPlayer from "react-audio-player";
 import Style from "./SimilarPage.module.scss";
@@ -30,8 +32,9 @@ const SimilarPage = (props) => {
     thirdTrackPreview_url: "",
   });
 
-  const handleClick = () => {
+  const history = useHistory();
 
+  const handleClick = () => {
     resetSimilarTrackURL();
 
     /* 似ている曲を取得 START */
@@ -87,10 +90,21 @@ const SimilarPage = (props) => {
 
   // トラックURLを初期化
   const resetSimilarTrackURL = () => {
-    setSimilarFirstTrack({firstTrackPreview_url: ""}) ,
-    setSimilarSecondTrack({secondTrackPreview_url: ""}) ,
-    setSimilarThirdTrack({thirdTrackPreview_url: ""}) 
-  }
+    setSimilarFirstTrack({ firstTrackPreview_url: "" }),
+      setSimilarSecondTrack({ secondTrackPreview_url: "" }),
+      setSimilarThirdTrack({ thirdTrackPreview_url: "" });
+  };
+
+  // クリックされたらIDを取得し、メインコンテンツを変更
+  const contentsChange = (id) => {
+    if (id === similarFirstTrack.firstTrackId) {
+      history.push(`/Search?query=${id}`);
+    } else if (id === similarSecondTrack.secondTrackId) {
+      history.push(`/Search?query=${id}`);
+    } else {
+      history.push(`/Search?query=${id}`);
+    }
+  };
 
   return (
     <div>
@@ -98,11 +112,18 @@ const SimilarPage = (props) => {
         表示
       </button>
       <div className={Style.container}>
-        <div className={Style.wrapper}>
+        <div
+          className={Style.wrapper}
+          onClick={() => contentsChange(similarFirstTrack.firstTrackId) }
+        >
           <img src={similarFirstTrack.firstTrackImg} />
           <p className={Style.textArea}>
-          <div className={Style.artistsName}>{similarFirstTrack.firstTrackArtists}</div>
-          <div className={Style.trackName}>{similarFirstTrack.firstTrackName}</div>
+            <div className={Style.artistsName}>
+              {similarFirstTrack.firstTrackArtists}
+            </div>
+            <div className={Style.trackName}>
+              {similarFirstTrack.firstTrackName}
+            </div>
           </p>
           <ReactAudioPlayer
             className={Style.audio}
@@ -110,11 +131,18 @@ const SimilarPage = (props) => {
             controls
           />
         </div>
-        <div className={Style.wrapper}>
+        <div
+          className={Style.wrapper}
+          onClick={() => contentsChange(similarSecondTrack.secondTrackId)}
+        >
           <img src={similarSecondTrack.secondTrackImg} />
           <p className={Style.textArea}>
-          <div className={Style.artistsName}>{similarSecondTrack.secondTrackArtists}</div>
-          <div className={Style.trackName}>{similarSecondTrack.secondTrackName}</div>
+            <div className={Style.artistsName}>
+              {similarSecondTrack.secondTrackArtists}
+            </div>
+            <div className={Style.trackName}>
+              {similarSecondTrack.secondTrackName}
+            </div>
           </p>
           <ReactAudioPlayer
             className={Style.audio}
@@ -122,11 +150,18 @@ const SimilarPage = (props) => {
             controls
           />
         </div>
-        <div className={Style.wrapper}>
+        <div
+          className={Style.wrapper}
+          onClick={() => contentsChange(similarThirdTrack.thirdTrackId)}
+        >
           <img src={similarThirdTrack.thirdTrackImg} />
           <p className={Style.textArea}>
-          <div className={Style.artistsName}>{similarThirdTrack.thirdTrackArtists}</div>
-          <div className={Style.trackName}>{similarThirdTrack.thirdTrackName}</div>
+            <div className={Style.artistsName}>
+              {similarThirdTrack.thirdTrackArtists}
+            </div>
+            <div className={Style.trackName}>
+              {similarThirdTrack.thirdTrackName}
+            </div>
           </p>
           <ReactAudioPlayer
             className={Style.audio}
