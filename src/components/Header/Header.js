@@ -10,9 +10,11 @@ const Header = () => {
     e.preventDefault();
     if (term === "") {
       alert("IDを入力してください");
-    } else {
+    } else if (term.startsWith("s")) {
       const ret = term.replace("spotify:track:", "");
       history.push(`/Search?query=${ret}`);
+    }else {
+      alert('IDに誤りがあります')
     }
   };
 

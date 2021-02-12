@@ -1,3 +1,4 @@
+/* eslint-disable no-sequences */
 /* eslint-disable no-unused-expressions */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
