@@ -82,19 +82,15 @@ const Search = () => {
       /* 楽曲情報を取得 END */
     });
 
-    if( searchContents.trackPreviewURL === "") {
-      
-    }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryResult, spotify.ClientId, spotify.ClientSecret]);
 
+// トラックURLを初期化
   const ResetSearchContentsURL = () =>  {
     setSearchContents({
       trackPreviewURL: "",
     })
   }
-
 
   return (
     <div>
