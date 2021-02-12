@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
 import ReactAudioPlayer from "react-audio-player";
-import Style from "./ContentsView.module.scss";
+import Style from "./MainContents.module.scss";
 
 const ContentsView = (props) => {
   return (

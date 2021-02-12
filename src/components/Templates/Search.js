@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Credentials } from "../Credentials";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import ContentsView from "../ContentsView/ContentsView";
+import MainContents from "../MainContents/MainContents";
 import Header from "../Header/Header";
 import SimilarPage from "../SimilarPage/SimilarPage";
 import Footer from "../Footer/Footer";
@@ -95,7 +95,7 @@ const Search = () => {
   return (
     <div>
       <Header />
-      <ContentsView
+      <MainContents
         searchContents={searchContents}
         trackInformation={trackInformation}
         // similarInformation={similarInformation}
