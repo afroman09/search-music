@@ -6,6 +6,7 @@ import ContentsView from "../ContentsView/ContentsView";
 import Header from "../Header/Header";
 import SimilarPage from "../SimilarPage/SimilarPage";
 import Footer from "../Footer/Footer";
+import Style from './Search.module.scss'
 
 const Search = () => {
   const spotify = Credentials();
@@ -88,7 +89,7 @@ const Search = () => {
         trackInformation={trackInformation}
         // similarInformation={similarInformation}
       />
-      <h3>【 {searchContents.trackName} 】に似た曲はこちら</h3>
+      <h3 className={Style.text}>【 {searchContents.trackName} 】に似た曲はこちら</h3>
       <SimilarPage
         token={token}
         trackInformation={trackInformation}

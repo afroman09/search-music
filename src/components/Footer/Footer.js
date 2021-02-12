@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div>
       <Link to="/">
-          <button className={Style.btn}>HOME</button>
+          <button className={Style.btn}>ホームへ戻る</button>
           </Link>
     </div>
   );
