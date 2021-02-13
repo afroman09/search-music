@@ -9,12 +9,12 @@ const Header = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (term === "") {
-      alert("IDを入力してください");
+      alert(" IDを入力してください");
     } else if (term.startsWith("s")) {
       const ret = term.replace("spotify:track:", "");
       history.push(`/Search?query=${ret}`);
     }else {
-      alert('IDに誤りがあります')
+      alert(' IDに誤りがあります')
     }
   };
 
