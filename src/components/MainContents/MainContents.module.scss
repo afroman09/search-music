@@ -1,17 +1,18 @@
 .container {
   .maincontents {
-    margin: 40px 0 10px 0;
+    padding: 50px 0;
     display: block;
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
     text-align: center;
     .img {
-      vertical-align: top;
+      vertical-align: middle;
       width: 45vh;
       margin: 10px;
     }
     .textArea {
       display: inline-block;
       text-align: left;
+      vertical-align: bottom;
       .textContents {
         margin: 20px 0 15px 0;
         div {
@@ -40,7 +41,6 @@
         margin-bottom: 30px;
         outline: none;
         width: 40vh;
-        height: 10vh;
       }
     }
   }
