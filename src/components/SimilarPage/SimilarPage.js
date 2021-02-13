@@ -32,13 +32,29 @@ const SimilarPage = (props) => {
     thirdTrackPreview_url: "",
   });
 
+  const [similarFourthTrack, setSimilarFourthTrack] = useState({
+    fourthTrackName: "",
+    fourthTrackId: "",
+    fourthTrackArtists: "",
+    fourthTrackImg: "",
+    fourthTrackPreview_url: "",
+  });
+
+  const [similarFifthTrack, setSimilarFifthTrack] = useState({
+    fifthTrackName: "",
+    fifthTrackId: "",
+    fifthTrackArtists: "",
+    fifthTrackImg: "",
+    fifthTrackPreview_url: "",
+  });
+
   const history = useHistory();
 
   const handleClick = () => {
     resetSimilarTrackURL();
 
     /* 似ている曲を取得 START */
-    axios(`https://api.spotify.com/v1/recommendations?limit=3&market=US`, {
+    axios(`https://api.spotify.com/v1/recommendations?limit=5&market=US`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + props.token,
@@ -81,6 +97,22 @@ const SimilarPage = (props) => {
           thirdTrackImg: firstrReaponse.data.tracks[2].album.images[1].url,
           thirdTrackPreview_url: firstrReaponse.data.tracks[2].preview_url,
         });
+        setSimilarFourthTrack({
+          fourthTrackName: firstrReaponse.data.tracks[3].name,
+          fourthTrackId: firstrReaponse.data.tracks[3].id,
+          fourthTrackArtists:
+            firstrReaponse.data.tracks[3].album.artists[0].name,
+          fourthTrackImg: firstrReaponse.data.tracks[3].album.images[1].url,
+          fourthTrackPreview_url: firstrReaponse.data.tracks[3].preview_url,
+        });
+        setSimilarFifthTrack({
+          fifthTrackName: firstrReaponse.data.tracks[4].name,
+          fifthTrackId: firstrReaponse.data.tracks[4].id,
+          fifthTrackArtists:
+            firstrReaponse.data.tracks[4].album.artists[0].name,
+          fifthTrackImg: firstrReaponse.data.tracks[4].album.images[1].url,
+          fifthTrackPreview_url: firstrReaponse.data.tracks[4].preview_url,
+        });
       })
       .catch((err) => {
         console.log("err:", err);
@@ -93,6 +125,8 @@ const SimilarPage = (props) => {
     setSimilarFirstTrack({ firstTrackPreview_url: "" }),
       setSimilarSecondTrack({ secondTrackPreview_url: "" }),
       setSimilarThirdTrack({ thirdTrackPreview_url: "" });
+      setSimilarFourthTrack({ fourthTrackPreview_url: "" });
+      setSimilarFifthTrack({ fifthTrackPreview_url: "" });
   };
 
   // クリックされたらIDを取得し、メインコンテンツを変更
@@ -101,7 +135,11 @@ const SimilarPage = (props) => {
       history.push(`/Search?query=${id}`);
     } else if (id === similarSecondTrack.secondTrackId) {
       history.push(`/Search?query=${id}`);
-    } else {
+    } else if (id === similarThirdTrack.thirdTrackId) {
+      history.push(`/Search?query=${id}`);
+    } else if (id === similarFourthTrack.fourthTrackId) {
+      history.push(`/Search?query=${id}`);
+    } else if (id === similarFifthTrack.fifthTrackId) {
       history.push(`/Search?query=${id}`);
     }
   };
@@ -166,6 +204,44 @@ const SimilarPage = (props) => {
           <ReactAudioPlayer
             className={Style.audio}
             src={similarThirdTrack.thirdTrackPreview_url}
+            controls
+          />
+        </div>
+        <div
+          className={Style.wrapper}
+          onClick={() => contentsChange(similarFourthTrack.fourthTrackId)}
+        >
+          <img src={similarFourthTrack.fourthTrackImg} />
+          <p className={Style.textArea}>
+            <div className={Style.artistsName}>
+              {similarFourthTrack.fourthTrackArtists}
+            </div>
+            <div className={Style.trackName}>
+              {similarFourthTrack.fourthTrackName}
+            </div>
+          </p>
+          <ReactAudioPlayer
+            className={Style.audio}
+            src={similarFourthTrack.fourthTrackPreview_url}
+            controls
+          />
+        </div>
+        <div
+          className={Style.wrapper}
+          onClick={() => contentsChange(similarFifthTrack.fifthTrackId)}
+        >
+          <img src={similarFifthTrack.fifthTrackImg} />
+          <p className={Style.textArea}>
+            <div className={Style.artistsName}>
+              {similarFifthTrack.fifthTrackArtists}
+            </div>
+            <div className={Style.trackName}>
+              {similarFifthTrack.fifthTrackName}
+            </div>
+          </p>
+          <ReactAudioPlayer
+            className={Style.audio}
+            src={similarFifthTrack.fifthTrackPreview_url}
             controls
           />
         </div>
