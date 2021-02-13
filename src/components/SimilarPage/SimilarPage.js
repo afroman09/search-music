@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-sequences */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import ReactAudioPlayer from "react-audio-player";
@@ -50,7 +50,9 @@ const SimilarPage = (props) => {
 
   const history = useHistory();
 
-  const handleClick = () => {
+  // tokenが変更されるたびに更新
+  useEffect(() => {
+
     resetSimilarTrackURL();
 
     /* 似ている曲を取得 START */
@@ -117,8 +119,8 @@ const SimilarPage = (props) => {
       .catch((err) => {
         console.log("err:", err);
       });
-    /* 似ている曲を取得 END */
-  };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.token])
 
   // トラックURLを初期化
   const resetSimilarTrackURL = () => {
@@ -146,9 +148,9 @@ const SimilarPage = (props) => {
 
   return (
     <div>
-      <button onClick={handleClick} className={Style.btn}>
+      {/* <button onClick={handleClick} className={Style.btn}>
         表示
-      </button>
+      </button> */}
       <div className={Style.container}>
         <div
           className={Style.wrapper}
