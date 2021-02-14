@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import TopImg1 from '../Img/Top-Img1.jpeg'
 import Style from './Home.module.scss'
 import Header from '../Header/Header.js'
@@ -21,6 +22,9 @@ const Home = () => {
       <p>【　LiSA / 紅蓮花 】Track ID : spotify:track:0qMip0B2D4ePEjBJvAtYre</p>
       <p>【　[Alexandros] / For Freedom 】Track ID : spotify:track:2IkJBK1hHGkfalA0hCbsui</p>
       <p>【　YOASOBI / 夜に駆ける 】Track ID : spotify:track:6MCjmGYlw6mQVWRFVgBRvB</p>
+    <Link to="/ArtistSearch">
+      <button>アーティスト検索</button>
+      </Link>
         <Header />
     </div>
   );
