@@ -5,11 +5,11 @@ import axios from "axios";
 import ArtistView from "../ArtistView/ArtistView";
 
 const ArtistSearchHeader = () => {
-  const [term, setTerm] = useState("");
+  const [artistTerm, setArtistTerm] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (term === "") {
+    if (artistTerm === "") {
       alert(" IDを入力してください");
     }
   };
@@ -37,7 +37,7 @@ const ArtistSearchHeader = () => {
     });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [term, spotify.ClientId, spotify.ClientSecret]);
+  }, [spotify.ClientId, spotify.ClientSecret]);
 
   return (
     <div className={Style.container}>
@@ -46,14 +46,14 @@ const ArtistSearchHeader = () => {
           type="text"
           placeholder="アーティスト名を入力してください"
           // 値が変更されるたびにstateを更新
-          onChange={(e) => setTerm(e.target.value)}
-          value={term}
+          onChange={(e) => setArtistTerm(e.target.value)}
+          value={artistTerm}
         />
         <button className={Style.btn} type="submit">
           検索
         </button>
       </form>
-      <ArtistView token={token} term={term} />
+      <ArtistView token={token} artistTerm={artistTerm} />
     </div>
   );
 };

@@ -4,16 +4,18 @@ import TrackView from "../TrackView/TrackView";
 
 const ArtistView = (props) => {
   const [artistInformation, setArtistInformation] = useState([]);
-  const [track, setTrack] = useState([]);
+  const [topTrack, setTopTrack] = useState([]);
+  const [album, setAlbum] = useState([]);
 
-  useEffect(() => {
-    /* アーティスト情報を取得 START */
+  /* アーティスト情報を取得 START */
 
-    setTrack([]);
+  const getArtist = () => {
+    setTopTrack([]);
     setArtistInformation([]);
+    setAlbum([]);
 
     axios(
-      `https://api.spotify.com/v1/search?q=${props.term}&type=artist&limit=20`,
+      `https://api.spotify.com/v1/search?q=${props.artistTerm}&type=artist&limit=20`,
       {
         method: "GET",
         headers: { Authorization: "Bearer " + props.token },
@@ -25,22 +27,51 @@ const ArtistView = (props) => {
       .catch((err) => {
         console.log("err:", err);
       });
+  };
+  /* アーティスト情報を取得 END */
 
-    /* アーティスト情報を取得 END */
+  useEffect(
+    () => {
+      if (props.artistTerm === "") {
+        console.log("no-data");
+      } else {
+        getArtist();
+      }
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.term]);
+    [props.artistTerm]
+  );
 
   const trackView = (id) => {
+    // Top Track START
     axios(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=ES`, {
       method: "GET",
       headers: { Authorization: "Bearer " + props.token },
     })
       .then((tracksReaponse) => {
-        setTrack(tracksReaponse.data.tracks);
+        setTopTrack(tracksReaponse.data.tracks);
       })
       .catch((err) => {
         console.log("err:", err);
       });
+    // Top Track END
+
+    // GET ALBUM START
+
+    axios(
+      `https://api.spotify.com/v1/artists/${id}/albums?market=ES&limit=20`,
+      {
+        method: "GET",
+        headers: { Authorization: "Bearer " + props.token },
+      }
+    )
+      .then((tracksReaponse) => {
+        setAlbum(tracksReaponse.data.items);
+      })
+      .catch((err) => {
+        console.log("err:", err);
+      });
+    // GET ALBUM END
   };
 
   return (
@@ -51,7 +82,7 @@ const ArtistView = (props) => {
         </div>
       ))}
 
-      <TrackView track={track} />
+      <TrackView track={topTrack} album={album} token={props.token} />
     </div>
   );
 };
