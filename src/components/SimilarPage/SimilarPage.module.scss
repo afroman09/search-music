@@ -25,16 +25,17 @@
   }
 }
 .container{
-  display: inline-block;
-  margin: 0 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
 .wrapper {
-  display: inline-block;
   text-align: center;
   background-image: linear-gradient(rgba(0,0,0,.6),#121212);
   letter-spacing: 2px;
-  margin: 0 40px;
-  padding: 10px;
-  max-width: 35vh;
+  margin: 0 5px;
+  padding: 5px;
+  width: 30vh;
   &:hover {
     transition: all 0.3s;
     background-color: #b3b3b3;
@@ -48,19 +49,21 @@
   }
   .artistsName{
     font-weight: 700;
-    font-size: 15px;
+    font-size: 14px;
   }
   .trackName {
     color: #b3b3b3;
-    font-size: 14px;
+    font-size: 12px;
   }
   img {
-    width: 30vh;
+    width: 25vh;
+    height: 25vh;
   }
   audio {
+    padding: 5px;
     outline: none;
-    width: 35vh;
-    height: 10vh;
+    width: 25vh;
+    height: 5vh;
   }
 }
 }

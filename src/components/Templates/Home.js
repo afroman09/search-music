@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom"
 import TopImg1 from '../Img/Top-Img1.jpeg'
 import Style from './Home.module.scss'
-import Header from '../Header/Header.js'
 
 const Home = () => {
   return (
@@ -16,16 +15,12 @@ const Home = () => {
       <img className={Style.img} src={TopImg1} alt="画像"/>
       <img className={Style.img} src={TopImg1} alt="画像"/>
       </div>
-      <p>【　ヨルシカ / ただ君に晴れ 】Track ID : spotify:track:3wJHCry960drNlAUGrJLmz</p>
-      <p>【　Laszlo / Supernova 】Track ID : spotify:track:4zIAj6F6UhV88Yat35oFNA</p>
-      <p>【　BTS / Dynamite 】Track ID : spotify:track:4saklk6nie3yiGePpBwUoc</p>
-      <p>【　LiSA / 紅蓮花 】Track ID : spotify:track:0qMip0B2D4ePEjBJvAtYre</p>
-      <p>【　[Alexandros] / For Freedom 】Track ID : spotify:track:2IkJBK1hHGkfalA0hCbsui</p>
-      <p>【　YOASOBI / 夜に駆ける 】Track ID : spotify:track:6MCjmGYlw6mQVWRFVgBRvB</p>
     <Link to="/ArtistSearch">
-      <button>アーティスト検索</button>
+      <button className={Style.btn}>アーティスト検索</button>
       </Link>
-        <Header />
+      <Link to="/TrackIdSearch">
+      <button className={Style.btn}>トラックID検索</button>
+      </Link>
     </div>
   );
 };

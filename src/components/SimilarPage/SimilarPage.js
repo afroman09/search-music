@@ -156,7 +156,7 @@ const SimilarPage = (props) => {
           className={Style.wrapper}
           onClick={() => contentsChange(similarFirstTrack.firstTrackId) }
         >
-          <img src={similarFirstTrack.firstTrackImg} />
+          <img src={similarFirstTrack.firstTrackImg} alt="" />
           <p className={Style.textArea}>
             <div className={Style.artistsName}>
               {similarFirstTrack.firstTrackArtists}
