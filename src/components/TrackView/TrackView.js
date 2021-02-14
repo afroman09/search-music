@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import Style from "./TrackView.module.scss";
 
 const TrackView = (props) => {
   const history = useHistory();
@@ -28,25 +29,29 @@ const TrackView = (props) => {
   };
 
   return (
-    <div>
-      {props.track.map(({ name, id }) => (
-        <div>
-          <p onClick={() => trackChange(id)}>{name}</p>
-        </div>
-      ))}
-
-      {props.album.map(({ images, name, id }) => (
-        <div>
-          <img src={images[1].url} onClick={() => albumTrackPreview(id)} />
-          <p>{name}</p>
-        </div>
-      ))}
-
-      {albumTrack.map(({ name, id }) => (
-        <div>
-          <p onClick={() => trackChange(id)}>{name}</p>
-        </div>
-      ))}
+    <div className={Style.container}>
+      <div className={Style.topTrack}>
+        {props.track.map(({ name, id }) => (
+          <div>
+            <p onClick={() => trackChange(id)}>{name}</p>
+          </div>
+        ))}
+      </div>
+      <div className={Style.albumTrack}>
+        {albumTrack.map(({ name, id }) => (
+          <div>
+            <p onClick={() => trackChange(id)}>{name}</p>
+          </div>
+        ))}
+      </div>
+      <div className={Style.album}>
+        {props.album.map(({ images, name, id }) => (
+          <div className={Style.wrapper}>
+            <img src={images[1].url} onClick={() => albumTrackPreview(id)} />
+            <p>{name}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
