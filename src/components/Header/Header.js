@@ -13,8 +13,8 @@ const Header = () => {
     } else if (term.startsWith("s")) {
       const ret = term.replace("spotify:track:", "");
       history.push(`/Search?query=${ret}`);
-    }else {
-      alert(' IDに誤りがあります')
+    }else{
+      history.push(`/search?query=${term}`)
     }
   };
 
