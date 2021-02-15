@@ -49,9 +49,6 @@ const ArtistSearchHeader = () => {
           onChange={(e) => setArtistTerm(e.target.value)}
           value={artistTerm}
         />
-        <button className={Style.btn} type="submit">
-          検索
-        </button>
       </form>
       <ArtistView token={token} artistTerm={artistTerm} />
     </div>

@@ -14,6 +14,7 @@ const TrackView = (props) => {
   };
 
   const albumTrackPreview = (id) => {
+
     // album Track START
     axios(`https://api.spotify.com/v1/albums/${id}/tracks?market=ES&limit=20`, {
       method: "GET",
@@ -26,28 +27,21 @@ const TrackView = (props) => {
         console.log("err:", err);
       });
     // album Track END
+    // track情報とともにアルバム画像も反映
   };
 
   return (
     <div className={Style.container}>
-      <div className={Style.topTrack}>
-        {props.track.map(({ name, id }) => (
-          <div>
-            <p onClick={() => trackChange(id)}>{name}</p>
-          </div>
-        ))}
-      </div>
-      <div className={Style.albumTrack}>
+        {/* {props.track.map(({ name, id }) => (
+            <div onClick={() => trackChange(id)} className={Style.topTrack}>{name}</div>
+        ))} */}
         {albumTrack.map(({ name, id }) => (
-          <div>
-            <p onClick={() => trackChange(id)}>{name}</p>
-          </div>
+            <div onClick={() => trackChange(id)} className={Style.albumTrack}>{name}</div>
         ))}
-      </div>
       <div className={Style.album}>
         {props.album.map(({ images, name, id }) => (
-          <div className={Style.wrapper}>
-            <img src={images[1].url} onClick={() => albumTrackPreview(id)} />
+          <div className={Style.wrapper} onClick={() => albumTrackPreview(id)} >
+            <img src={images[1].url}/>
             <p>{name}</p>
           </div>
         ))}

@@ -1,16 +1,20 @@
 .container {
-    .albumTrack {
-        text-align: right;
-    }
+  .topTrack {
+    text-align: right;
+  }
 
+  .albumTrack {
+    text-align: right;
+  }
   .album {
+    margin: 0 10vh;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     // 左寄せにする
     .wrapper {
-      padding: 10px;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
+      padding: 20px;
+      background-image: linear-gradient(rgba(0,0,0,.6),#121212);
       letter-spacing: 2px;
       margin: 5px;
       &:hover {
@@ -19,12 +23,13 @@
         cursor: pointer;
       }
       img {
-        width: 20vh;
-        height: 20vh;
+        width: 25vh;
+        height: 25vh;
       }
       p {
         width: 25vh;
         font-size: 16px;
+        text-align: left;
       }
     }
   }
