@@ -1,20 +1,29 @@
 .container {
   margin: 5vh 0;
-  .topTrack {
-    text-align: right;
+  .albumPreview {
+    margin-bottom: 50px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
+    .imgWrapper {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .trackContents {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 20px 0;
+      .albumTrack {
+        list-style: none;
+        padding: 5px;
+        margin-left: 50px;
+        text-align: left;
+        &:hover {
+          transition: all 0.3s;
+          background-color: #b3b3b3;
+          cursor: pointer;
+        }
+      }
+    }
   }
-  .trackContents{
-    display: inline-block;
-    background-color: greenyellow;
-  .albumTrack {
-    text-align: right;
-  &:hover {
-    transition: all 0.3s;
-    background-color: #b3b3b3;
-    cursor: pointer;
-  }
-  }
-}
   .album {
     display: flex;
     flex-wrap: wrap;
@@ -23,7 +32,7 @@
     // 左寄せにする
     .wrapper {
       padding: 5px;
-      background-image: linear-gradient(rgba(0,0,0,.6),#121212);
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
       letter-spacing: 2px;
       margin: 0 5px;
       width: 30vh;
@@ -38,7 +47,8 @@
       }
       p {
         width: 25vh;
-        font-size: 12px;
+        margin: 25px;
+        font-size: 14px;
         text-align: left;
       }
     }

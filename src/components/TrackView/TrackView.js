@@ -7,6 +7,7 @@ import Style from "./TrackView.module.scss";
 const TrackView = (props) => {
   const history = useHistory();
   const [albumTrack, setAlbumTrack] = useState([]);
+  const [albumImg, setAlbumImg] = useState("")
 
   const trackChange = (id) => {
     history.push(`/Search?query=${id}`);
@@ -18,6 +19,20 @@ const TrackView = (props) => {
   }, [props.album])
 
   const albumTrackPreview = (id) => {
+
+    // track情報とともにアルバム画像も反映
+
+    axios(`https://api.spotify.com/v1/albums/${id}`, {
+      method: "GET",
+      headers: { Authorization: "Bearer " + props.token },
+    })
+      .then((albumReaponse) => {
+        setAlbumImg(albumReaponse.data.images[1].url);
+      })
+      .catch((err) => {
+        console.log("err:", err);
+      });
+
     // album Track START
     axios(`https://api.spotify.com/v1/albums/${id}/tracks?market=ES&limit=20`, {
       method: "GET",
@@ -30,20 +45,22 @@ const TrackView = (props) => {
         console.log("err:", err);
       });
     // album Track END
-    // track情報とともにアルバム画像も反映
   };
+
 
   return (
     <div className={Style.container}>
-      {/* {props.track.map(({ name, id }) => (
-            <div onClick={() => trackChange(id)} className={Style.topTrack}>{name}</div>
-        ))} */}
+        <div className={Style.albumPreview}>
+        <div className={Style.imgWrapper}>
+          <img src={albumImg}></img>
+        </div>
       <div className={Style.trackContents}>
         {albumTrack.map(({ name, id }) => (
-          <p onClick={() => trackChange(id)} className={Style.albumTrack} key={id}>
+          <li onClick={() => trackChange(id)} className={Style.albumTrack} key={id}>
             {name}
-          </p>
+          </li>
         ))}
+      </div>
       </div>
       <div className={Style.album}>
         {props.album.map(({ images, name, id }) => (
