@@ -1,10 +1,10 @@
 import React from "react";
-import Header from "../Header/Header";
+import SearchInput from "../Header/SearchInput";
 
 const TrackIdSearch = () => {
   return (
     <div>
-      <Header />
+      <SearchInput />
       <p>
         【 ヨルシカ / ただ君に晴れ 】Track ID :
         spotify:track:3wJHCry960drNlAUGrJLmz

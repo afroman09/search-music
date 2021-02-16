@@ -2,10 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom"
 import TopImg1 from '../Img/Top-Img1.jpeg'
 import Style from './Home.module.scss'
+import Header from '../Header/Header'
 
 const Home = () => {
   return (
     <div className={Style.container}>
+      <Header />
       <h1>Welcom to Search Music</h1>
       <p>このアプリはあなたのお気に入りの曲を分析し、
         <br />

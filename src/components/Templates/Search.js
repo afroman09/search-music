@@ -3,9 +3,8 @@ import { Credentials } from "../Credentials";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import MainContents from "../MainContents/MainContents";
-import Header from "../Header/Header";
+import SearchInput from "../Header/SearchInput";
 import SimilarPage from "../SimilarPage/SimilarPage";
-import Footer from "../Footer/Footer";
 import Style from './Search.module.scss'
 
 const Search = () => {
@@ -94,7 +93,7 @@ const Search = () => {
 
   return (
     <div>
-      <Header />
+      <SearchInput />
       <MainContents
         searchContents={searchContents}
         trackInformation={trackInformation}
@@ -106,7 +105,6 @@ const Search = () => {
         trackInformation={trackInformation}
         queryResult={queryResult}
       />
-      <Footer />
     </div>
   );
 };

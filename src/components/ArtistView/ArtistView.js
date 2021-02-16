@@ -43,6 +43,7 @@ const ArtistView = (props) => {
   );
 
   const trackView = (id) => {
+
     // // Top Track START
     // axios(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=ES`, {
     //   method: "GET",
@@ -75,13 +76,12 @@ const ArtistView = (props) => {
 
     // 検索候補をリセット
     setArtistInformation([]);
-
   };
 
   return (
     <div>
       {artistInformation.map(({ name, id }) => (
-        <div>
+        <div key={id}>
           <p onClick={() => trackView(id)}>{name}</p>
         </div>
       ))}

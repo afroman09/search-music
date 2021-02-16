@@ -1,20 +1,23 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Style from "./TrackView.module.scss";
 
 const TrackView = (props) => {
   const history = useHistory();
-
   const [albumTrack, setAlbumTrack] = useState([]);
 
   const trackChange = (id) => {
     history.push(`/Search?query=${id}`);
   };
 
-  const albumTrackPreview = (id) => {
+  useEffect(() => {
+    // AlbumTrackのリセット
+    setAlbumTrack([])
+  }, [props.album])
 
+  const albumTrackPreview = (id) => {
     // album Track START
     axios(`https://api.spotify.com/v1/albums/${id}/tracks?market=ES&limit=20`, {
       method: "GET",
@@ -32,16 +35,24 @@ const TrackView = (props) => {
 
   return (
     <div className={Style.container}>
-        {/* {props.track.map(({ name, id }) => (
+      {/* {props.track.map(({ name, id }) => (
             <div onClick={() => trackChange(id)} className={Style.topTrack}>{name}</div>
         ))} */}
+      <div className={Style.trackContents}>
         {albumTrack.map(({ name, id }) => (
-            <div onClick={() => trackChange(id)} className={Style.albumTrack}>{name}</div>
+          <p onClick={() => trackChange(id)} className={Style.albumTrack} key={id}>
+            {name}
+          </p>
         ))}
+      </div>
       <div className={Style.album}>
         {props.album.map(({ images, name, id }) => (
-          <div className={Style.wrapper} onClick={() => albumTrackPreview(id)} >
-            <img src={images[1].url}/>
+          <div
+            className={Style.wrapper}
+            onClick={() => albumTrackPreview(id)}
+            key={id}
+          >
+            <img src={images[1].url} />
             <p>{name}</p>
           </div>
         ))}
