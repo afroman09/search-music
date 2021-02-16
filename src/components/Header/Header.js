@@ -64,7 +64,7 @@ class Header extends Component {
             </Drawer>
             <strong>
               <Link to="/" className={Style.title}>
-                Search Music
+                SearchMusic
               </Link>
             </strong>
           </Toolbar>

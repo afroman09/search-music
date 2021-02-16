@@ -1,10 +1,12 @@
 import React from "react";
 import SearchInput from "../Header/SearchInput";
+import Style from './TrackIdSearch.module.scss'
 
 const TrackIdSearch = () => {
   return (
     <div>
       <SearchInput />
+      <div className={Style.container}>
       <p>
         【 ヨルシカ / ただ君に晴れ 】Track ID :
         spotify:track:3wJHCry960drNlAUGrJLmz
@@ -24,6 +26,7 @@ const TrackIdSearch = () => {
         【 YOASOBI / 夜に駆ける 】Track ID :
         spotify:track:6MCjmGYlw6mQVWRFVgBRvB
       </p>
+      </div>
     </div>
   );
 };
