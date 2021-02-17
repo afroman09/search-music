@@ -4,11 +4,10 @@ import ReactAudioPlayer from "react-audio-player";
 import Style from "./MainContents.module.scss";
 
 const ContentsView = (props) => {
-
   return (
     <div className={Style.container}>
       <div className={Style.maincontents}>
-        <img className={Style.img} src={props.searchContents.trackImg}/>
+        <img className={Style.img} src={props.searchContents.trackImg} />
         <div className={Style.textArea}>
           <p className={Style.textContents}>
             <div className={Style.artistsName}>

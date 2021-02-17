@@ -52,7 +52,7 @@ export default function ButtonAppBar() {
       <AppBar position="fixed" className={classes.menuBar}>
         <Toolbar>
           <Typography
-            variant="h7"
+            variant="h6"
             className={classes.title}
             onClick={() => {
               history.push(`/`);

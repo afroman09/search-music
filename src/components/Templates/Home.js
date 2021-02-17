@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import TopImg1 from "../Img/Top-Img1.jpeg";
-import TopImg2 from "../Img/Top-Img2.jpeg";
-import TopImg3 from "../Img/Top-Img3.jpeg";
+import TopImg1 from "../assets/Img/Top-Img1.jpeg";
+import TopImg2 from "../assets/Img/Top-Img2.jpeg";
+import TopImg3 from "../assets/Img/Top-Img3.jpeg";
 import Style from "./Home.module.scss";
 import Header from "../Header/Header";
 

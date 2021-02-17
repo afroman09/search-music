@@ -94,11 +94,9 @@ const Search = () => {
   return (
     <div>
       <Header />
-      {/* <SearchInput /> */}
       <MainContents
         searchContents={searchContents}
         trackInformation={trackInformation}
-        // similarInformation={similarInformation}
       />
       <h3 className={Style.text}>【 {searchContents.trackName} 】に似た曲はこちら</h3>
       <SimilarPage
