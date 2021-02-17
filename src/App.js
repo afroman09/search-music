@@ -1,15 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Home from "./components/Templates/Home";
-import Search from "./components/Templates/Search";
-import ArtistSearch from "./components/Templates/ArtistSearch";
-import TrackIdSearch from "./components/Templates/TrackIdSearch";
-import ScrollTop from './components/ScrollToTop/ScrollToTop'
+import Home from "./components/Pages/Home/Home";
+import Search from "./components/Pages/Search/Search";
+import ArtistSearch from "./components/Pages/ArtistSearch/ArtistSearch";
+import TrackIdSearch from "./components/Pages/TrackIdSearch/TrackIdSearch";
 
 const App = () => {
   return (
     <Router>
-      <ScrollTop />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/Search" component={Search} />

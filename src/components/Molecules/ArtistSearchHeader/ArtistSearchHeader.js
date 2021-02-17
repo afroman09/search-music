@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Style from "./SearchInput.module.scss";
-import { Credentials } from "../Credentials";
+import Style from "../SearchInput/SearchInput.module.scss";
+import { Credentials } from "../../Credentials";
 import axios from "axios";
-import ArtistView from "../ArtistView/ArtistView";
+import ArtistView from "../../Organisms/ArtistView/ArtistView";
 
 const ArtistSearchHeader = () => {
   const [artistTerm, setArtistTerm] = useState("");
