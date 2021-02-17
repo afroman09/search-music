@@ -6,12 +6,13 @@
     .img {
       vertical-align: top;
       width: 45vh;
-      margin: 10px;
+      margin: 10px 5px;
     }
     .textArea {
       display: inline-block;
       text-align: left;
       vertical-align: bottom;
+      margin: 20px 5px;
       .textContents {
         margin: 20px 0 15px 0;
         div {
@@ -20,18 +21,19 @@
         }
         .artistsName {
           font-weight: 700;
-          font-size: 20px;
+          font-size: 22px;
         }
         .trackName {
           color: #b3b3b3;
-          font-size: 18px;
+          font-size: 20px;
         }
       }
         ul {
           list-style: none;
           padding: 5px;
           margin: 5px 0 20px 0;
-          font-size: 16px;
+          font-size: 18px;
+          letter-spacing: 1px;
           li{
             margin-bottom: 2px;
           }

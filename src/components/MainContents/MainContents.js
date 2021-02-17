@@ -19,13 +19,13 @@ const ContentsView = (props) => {
             </div>
           </p>
           <ul>
-            <li>danceability : {props.trackInformation.danceability} 踊りやすさ(1に近づくほど踊りやすい)</li>
-            <li>energy : {props.trackInformation.energy} 曲の過激さ(1に近づくほど過激) </li>
-            <li>key : {props.trackInformation.key}  (楽曲のキー)</li>
-            <li>loudness: {props.trackInformation.loudness} (音量・音圧（db）の平均値)</li>
-            <li>mode : {props.trackInformation.mode} (調性 メジャー=1、マイナー=0)</li>
-            <li>valence : {props.trackInformation.valence} 明るさ(1に近いほど明るい)</li>
-            <li>tempo : {props.trackInformation.tempo} BPM(曲の速さ)</li>
+            <li>danceability : {props.trackInformation.danceability}</li>
+            <li>energy : {props.trackInformation.energy}</li>
+            <li>key : {props.trackInformation.key}</li>
+            <li>loudness: {props.trackInformation.loudness}</li>
+            <li>mode : {props.trackInformation.mode}</li>
+            <li>valence : {props.trackInformation.valence}</li>
+            <li>tempo : {props.trackInformation.tempo}</li>
           </ul>
           <ReactAudioPlayer
             className={Style.audio}

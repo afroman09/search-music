@@ -31,6 +31,9 @@ class Header extends Component {
           <Link to="/ArtistSearch">
         <p className={Style.menuText}>アーティスト検索</p>
           </Link>
+          <Link to="/TrackIdSearch">
+        <p className={Style.menuText}>トラックID検索</p>
+          </Link>
         </List>
       </div>
     );
@@ -61,7 +64,7 @@ class Header extends Component {
             </Drawer>
             <strong>
               <Link to="/" className={Style.title}>
-                Search Music
+                SearchMusic
               </Link>
             </strong>
           </Toolbar>
