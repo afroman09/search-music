@@ -3,7 +3,7 @@ import { Credentials } from "../Credentials";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import MainContents from "../MainContents/MainContents";
-import SearchInput from "../Header/SearchInput";
+import Header from "../Header/Header";
 import SimilarPage from "../SimilarPage/SimilarPage";
 import Style from './Search.module.scss'
 
@@ -93,7 +93,8 @@ const Search = () => {
 
   return (
     <div>
-      <SearchInput />
+      <Header />
+      {/* <SearchInput /> */}
       <MainContents
         searchContents={searchContents}
         trackInformation={trackInformation}
