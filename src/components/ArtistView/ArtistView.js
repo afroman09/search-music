@@ -4,7 +4,6 @@ import TrackView from "../TrackView/TrackView";
 
 const ArtistView = (props) => {
   const [artistInformation, setArtistInformation] = useState([]);
-  // const [topTrack, setTopTrack] = useState([]);
   const [album, setAlbum] = useState([]);
 
   /* アーティスト情報を取得 START */
@@ -44,19 +43,6 @@ const ArtistView = (props) => {
 
   const trackView = (id) => {
 
-    // // Top Track START
-    // axios(`https://api.spotify.com/v1/artists/${id}/top-tracks?market=ES`, {
-    //   method: "GET",
-    //   headers: { Authorization: "Bearer " + props.token },
-    // })
-    //   .then((tracksReaponse) => {
-    //     setTopTrack(tracksReaponse.data.tracks);
-    //   })
-    //   .catch((err) => {
-    //     console.log("err:", err);
-    //   });
-    // // Top Track END
-
     // GET ALBUM START
 
     axios(
@@ -86,7 +72,7 @@ const ArtistView = (props) => {
         </div>
       ))}
 
-      <TrackView /*track={topTrack}*/ album={album} token={props.token} />
+      <TrackView album={album} token={props.token} />
     </div>
   );
 };

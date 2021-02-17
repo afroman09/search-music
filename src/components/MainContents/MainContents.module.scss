@@ -1,17 +1,27 @@
 .container {
   .maincontents {
-    padding-bottom: 50px;
+    padding: 100px 0 50px 0;
     display: block;
     text-align: center;
+    @media screen and (max-width: 695px) {
+      padding-bottom: 0;
+    }
     .img {
       vertical-align: top;
       width: 45vh;
-      margin: 10px;
+      margin: 10px 5px;
+      @media screen and (max-width: 560px) {
+        width: 50vh;
+      }
     }
     .textArea {
       display: inline-block;
       text-align: left;
       vertical-align: bottom;
+      margin: 20px 5px;
+      @media screen and (max-width: 656px) {
+        text-align: center;
+      }
       .textContents {
         margin: 20px 0 15px 0;
         div {
@@ -20,18 +30,23 @@
         }
         .artistsName {
           font-weight: 700;
-          font-size: 20px;
+          font-size: 22px;
         }
         .trackName {
           color: #b3b3b3;
-          font-size: 18px;
+          font-size: 20px ;
+          @media screen and (max-width: 656px) {
+            text-align: center;
+            font-size: 16px;
+          }
         }
       }
         ul {
           list-style: none;
           padding: 5px;
           margin: 5px 0 20px 0;
-          font-size: 16px;
+          font-size: 18px;
+          letter-spacing: 1px;
           li{
             margin-bottom: 2px;
           }
@@ -40,6 +55,9 @@
         margin-bottom: 30px;
         outline: none;
         width: 40vh;
+        @media screen and (max-width: 656px) {
+          width: 100%;
+        }
       }
     }
   }

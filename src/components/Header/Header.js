@@ -1,78 +1,106 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
+import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import List from "@material-ui/core/List";
-import Drawer from "@material-ui/core/Drawer";
-import Style from "./Header.module.scss";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import SearchIcon from "@material-ui/icons/Search";
+import HomeIcon from "@material-ui/icons/Home";
+import { useHistory } from "react-router-dom";
 
-class Header extends Component {
-  state = {
-    left: false,
-  };
-
-  toggleDrawer = (side, open) => () => {
-    this.setState({
-      [side]: open,
-    });
-  };
-
-  render() {
-    const sideList = (
-      <div className={Style.list}>
-        <List>
-          <Link to="/">
-            <p className={Style.menuText}>Home</p>
-          </Link>
-          <Link to="/ArtistSearch">
-        <p className={Style.menuText}>アーティスト検索</p>
-          </Link>
-        </List>
-      </div>
-    );
-
-    return (
-      <div className={Style.menu}>
-        <AppBar position="relative" color="#fff" backgroundColor="#121212">
-          <Toolbar style={{ backgroundColor:"#121212" }}>
-            <IconButton
-              className={Style.menuButton}
-              aria-label="Menu"
-              onClick={this.toggleDrawer("left", true)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Drawer
-              open={this.state.left}
-              onClose={this.toggleDrawer("left", false)}
-            >
-              <div
-                tabIndex={0}
-                role="button"
-                onClick={this.toggleDrawer("left", false)}
-                onKeyDown={this.toggleDrawer("left", false)}
-              >
-                {sideList}
-              </div>
-            </Drawer>
-            <strong>
-              <Link to="/" className={Style.title}>
-                Search Music
-              </Link>
-            </strong>
-          </Toolbar>
-        </AppBar>
-      </div>
-    );
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuBar: {
+    backgroundColor: "#121212",
+    color: "#fff",
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+    color: "#1DB954",
+    fontSize: "24px",
+    fontWeight: "700"
+  },
+  menuPaper: {
+    backgroundColor: "#121212",
+    color: "#fff"
   }
+}));
+
+export default function ButtonAppBar() {
+  const classes = useStyles();
+  const history = useHistory();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <div className={classes.root}>
+      <AppBar position="fixed" className={classes.menuBar}>
+        <Toolbar>
+          <Typography
+            variant="h7"
+            className={classes.title}
+            onClick={() => {
+              history.push(`/`);
+            }}
+          >
+            SearchMusic
+          </Typography>
+          <Button
+            color="inherit"
+            onClick={() => {
+              history.push(`/`);
+            }}
+          >
+            <HomeIcon />
+          </Button>
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+            color="inherit"
+          >
+            <SearchIcon />
+          </Button>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+            classes={{ paper: classes.menuPaper }}
+          >
+            <MenuItem
+              onClick={() => {
+                history.push(`/ArtistSearch`);
+              }}
+            >
+              アーティスト検索
+            </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  history.push(`/TrackIdSearch`);
+                }}
+              >
+                ID検索
+              </MenuItem>
+          </Menu>
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
 }
-
-Header.propTypes = {
-  Style: PropTypes.object.isRequired,
-};
-
-export default withStyles()(Header);
