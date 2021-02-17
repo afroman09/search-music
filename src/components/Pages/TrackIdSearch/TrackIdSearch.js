@@ -1,7 +1,7 @@
 import React from "react";
-import SearchInput from "../Header/SearchInput";
+import SearchInput from "../../Molecules/SearchInput/SearchInput";
 import Style from "./TrackIdSearch.module.scss";
-import trackSearchImg from "../Img/trackSearch-Img1.jpeg";
+import trackSearchImg from "../../Atoms/assets/Img/trackSearch-Img1.jpeg";
 
 const TrackIdSearch = () => {
   return (

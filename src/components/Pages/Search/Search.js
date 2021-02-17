@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Credentials } from "../Credentials";
+import { Credentials } from "../../Credentials";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import MainContents from "../MainContents/MainContents";
-import Header from "../Header/Header";
-import SimilarPage from "../SimilarPage/SimilarPage";
+import MainContents from "../../Organisms/MainContents/MainContents";
+import Header from "../../Molecules/Header/Header";
+import SimilarPage from "../../Organisms/SimilarPage/SimilarPage";
 import Style from './Search.module.scss'
 
 const Search = () => {

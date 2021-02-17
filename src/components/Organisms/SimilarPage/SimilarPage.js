@@ -11,7 +11,7 @@ const SimilarPage = (props) => {
   // tokenが変更されるたびに更新
   useEffect(() => {
     /* 似ている曲を取得 START */
-    axios(`https://api.spotify.com/v1/recommendations?limit=5&market=US`, {
+    axios(`https://api.spotify.com/v1/recommendations?limit=10&market=US`, {
       method: "GET",
       headers: {
         Authorization: "Bearer " + props.token,

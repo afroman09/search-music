@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Style from "./SearchInput.module.scss";
-import Header from "./Header";
+import Header from "../Header/Header";
 
 const SearchInput = () => {
   const [term, setTerm] = useState("");
