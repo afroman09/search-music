@@ -1,6 +1,6 @@
 import React from "react";
-import ArtistSearchHeader from "../Header/ArtistSearchHeader";
-import Header from "../Header/Header";
+import ArtistSearchHeader from "../../Molecules/ArtistSearchHeader/ArtistSearchHeader";
+import Header from "../../Molecules/Header/Header";
 
 const ArtistSearch = () => {
   return (
