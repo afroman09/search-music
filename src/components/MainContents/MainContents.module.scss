@@ -1,18 +1,27 @@
 .container {
   .maincontents {
-    padding-bottom: 50px;
+    padding: 100px 0 50px 0;
     display: block;
     text-align: center;
+    @media screen and (max-width: 695px) {
+      padding-bottom: 0;
+    }
     .img {
       vertical-align: top;
       width: 45vh;
       margin: 10px 5px;
+      @media screen and (max-width: 560px) {
+        width: 50vh;
+      }
     }
     .textArea {
       display: inline-block;
       text-align: left;
       vertical-align: bottom;
       margin: 20px 5px;
+      @media screen and (max-width: 656px) {
+        text-align: center;
+      }
       .textContents {
         margin: 20px 0 15px 0;
         div {
@@ -25,7 +34,11 @@
         }
         .trackName {
           color: #b3b3b3;
-          font-size: 20px;
+          font-size: 20px ;
+          @media screen and (max-width: 656px) {
+            text-align: center;
+            font-size: 16px;
+          }
         }
       }
         ul {
@@ -42,6 +55,9 @@
         margin-bottom: 30px;
         outline: none;
         width: 40vh;
+        @media screen and (max-width: 656px) {
+          width: 100%;
+        }
       }
     }
   }

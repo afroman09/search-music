@@ -16,6 +16,7 @@ const TrackView = (props) => {
   useEffect(() => {
     // AlbumTrackのリセット
     setAlbumTrack([])
+    setAlbumImg('')
   }, [props.album])
 
   const albumTrackPreview = (id) => {

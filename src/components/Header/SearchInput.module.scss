@@ -1,17 +1,21 @@
 .container {
   text-align: center;
+  padding: 100px 0 50px 0;
   .wrapper{
     margin: 50px;
   input {
     border: none;
     outline: none;
     border-radius: 5vh;
-    width: 40vh;
+    width: 100vh;
     height: 30px;
     text-align: left;
     letter-spacing: 1px;
     font-size: 14px;
     margin: 0 5px;
+    @media screen and (max-width: 665px) {
+      width: 100%;
+    }
   }
   .btn {
     border: none;
@@ -22,7 +26,12 @@
     font-size: 16px;
     color: #fff;
     font-weight: 700;
-    margin: 0 5px;
+    margin: 10px 5px;
+    @media screen and (max-width: 665px) {
+      display: block;
+      margin: 10px auto;
+      width: 40%;
+    }
     &:hover {
       cursor: pointer;
       -webkit-box-sizing: border-box;

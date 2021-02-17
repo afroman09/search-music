@@ -1,3 +1,7 @@
 .text {
     margin-left: 5vh;
+    @media screen and (max-width: 665px) {
+        margin-left: 0 2vh;
+        font-size: 14px;
+      }
 }

@@ -3,7 +3,6 @@ import Style from "./SearchInput.module.scss";
 import { Credentials } from "../Credentials";
 import axios from "axios";
 import ArtistView from "../ArtistView/ArtistView";
-import Header from './Header'
 
 const ArtistSearchHeader = () => {
   const [artistTerm, setArtistTerm] = useState("");
@@ -42,7 +41,6 @@ const ArtistSearchHeader = () => {
 
   return (
     <div className={Style.container}>
-      <Header />
       <form onSubmit={handleSubmit} className={Style.wrapper}>
         <input
           type="text"
