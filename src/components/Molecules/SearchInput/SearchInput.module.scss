@@ -7,13 +7,14 @@
     border: none;
     outline: none;
     border-radius: 5vh;
-    width: 100vh;
+    width: 60vh;
     height: 30px;
     text-align: left;
     letter-spacing: 1px;
     font-size: 14px;
     margin: 0 5px;
-    @media screen and (max-width: 665px) {
+    font-size: x-small;
+    @media screen and (max-width: 700px) {
       width: 100%;
     }
   }
@@ -27,10 +28,12 @@
     color: #fff;
     font-weight: 700;
     margin: 10px 5px;
-    @media screen and (max-width: 665px) {
+    @media screen and (max-width: 700px) {
       display: block;
       margin: 10px auto;
-      width: 40%;
+      width: 100px;
+      height: 3.2em;
+      font-size: x-small;
     }
     &:hover {
       cursor: pointer;

@@ -37,13 +37,21 @@
   margin: 10px;
   padding: 5px;
   width: 30vh;
+  @media screen and (max-width: 420px) {
+    width: 25vh;
+    font-size: small;
+  }
   &:hover {
     transition: all 0.3s;
     background-color: #b3b3b3;
     cursor: pointer;
   }
   .textArea {
-    height: 50px;
+    height: 5.2em;
+    padding: 12px;
+    @media screen and (max-width: 420px) {
+      padding: 10px 0 5px 0;
+    }
   }
   div {
     padding: 3px;
@@ -51,6 +59,9 @@
   .artistsName{
     font-weight: 700;
     font-size: 14px;
+    @media screen and (max-width: 420px) {
+      font-size: 12px;
+    }
   }
   .trackName {
     color: #b3b3b3;
@@ -59,12 +70,21 @@
   img {
     width: 25vh;
     height: 25vh;
+    @media screen and (max-width: 420px) {
+      width: 20vh;
+      height: 20vh;
+    }
   }
   audio {
     padding: 5px;
     outline: none;
     width: 25vh;
     height: 5vh;
+    @media screen and (max-width: 420px) {
+      width: 20vh;
+      height: 5vh;
+    }
   }
+  
 }
 }
