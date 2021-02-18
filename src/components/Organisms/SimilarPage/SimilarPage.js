@@ -54,10 +54,10 @@ const SimilarPage = (props) => {
             onClick={() => contentsChange(id)}
           >
             <img src={album.images[1].url} alt="アルバム画像" />
-            <p className={Style.textArea}>
+            <div className={Style.textArea}>
               <div className={Style.artistsName}>{artists[0].name}</div>
               <div className={Style.trackName}>{name}</div>
-            </p>
+            </div>
             <ReactAudioPlayer
               className={Style.audio}
               src={preview_url}

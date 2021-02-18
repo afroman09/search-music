@@ -13,9 +13,8 @@ const Home = () => {
       <div className={Style.container}>
         <div className={Style.title}>
           <h1>Welcom to SearchMusic</h1>
-          <p>
+          <p className={Style.subTitle}>
             このアプリはあなたのお気に入りの曲を分析し、
-            <br />
             分析結果を元におすすめの曲を提案します
           </p>
         </div>
