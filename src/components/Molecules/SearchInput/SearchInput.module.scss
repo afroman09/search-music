@@ -1,6 +1,7 @@
 .container {
   text-align: center;
   padding: 100px 0 50px 0;
+
   input {
     border: none;
     outline: none;
@@ -14,7 +15,7 @@
     font-size: x-small;
     @media screen and (max-width: 700px) {
       width: 80%;
-      margin-top: 50px;
+      margin: 50px 0;
     }
   }
   .btn {
@@ -22,7 +23,7 @@
     border-radius: 100vh;
     width: 200px;
     height: 50px;
-    background-color: #1db954;
+    background-color: #1DB954;
     font-size: 16px;
     color: #fff;
     font-weight: 700;
@@ -41,7 +42,12 @@
       box-sizing: border-box;
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
-      background-color: #1ed760;
+      background-color: #1ED760;
+    }
+    ::before
+    {
+      border: none;
+      outline: none;
     }
   }
 }
