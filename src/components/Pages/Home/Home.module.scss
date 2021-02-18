@@ -3,8 +3,16 @@
   margin-bottom: 10vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
   .title {
-    padding: 100px 0 50px 0;
+    padding: 100px 10px 50px 10px;
+    .subTitle {
+      @media screen and (max-width: 780px) {
+        font-size: small;
+        margin: 0 auto;
+        max-width: 80%;
+        word-wrap: break-word;
+    }
   }
+}
   .leftcontainer {
     padding-bottom: 50px;
   }
@@ -52,6 +60,11 @@
     font-size: 2vh;
     color: #fff;
     font-weight: 700;
+    @media screen and (max-width: 780px) {
+      width: 25vh;
+      height: 3.2em;
+      font-size: x-small;
+    }
     &:hover {
       cursor: pointer;
       -webkit-box-sizing: border-box;
@@ -81,7 +94,6 @@
     }
   }
 }
-
 .copyright {
   text-align: center;
   padding-bottom: 50px;
