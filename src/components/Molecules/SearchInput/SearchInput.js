@@ -23,7 +23,7 @@ const SearchInput = () => {
     <>
       <Header />
       <div className={Style.container}>
-        <form onSubmit={handleSubmit} className={Style.wrapper}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Track IDを入力してください"

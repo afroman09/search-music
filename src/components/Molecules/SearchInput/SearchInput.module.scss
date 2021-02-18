@@ -1,8 +1,6 @@
 .container {
   text-align: center;
   padding: 100px 0 50px 0;
-  .wrapper{
-    margin: 50px;
   input {
     border: none;
     outline: none;
@@ -15,7 +13,8 @@
     margin: 0 5px;
     font-size: x-small;
     @media screen and (max-width: 700px) {
-      width: 100%;
+      width: 80%;
+      margin-top: 50px;
     }
   }
   .btn {
@@ -23,7 +22,7 @@
     border-radius: 100vh;
     width: 200px;
     height: 50px;
-    background-color: #1DB954;
+    background-color: #1db954;
     font-size: 16px;
     color: #fff;
     font-weight: 700;
@@ -42,13 +41,7 @@
       box-sizing: border-box;
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
-      background-color: #1ED760;
-    }
-    ::before
-    {
-      border: none;
-      outline: none;
+      background-color: #1ed760;
     }
   }
-}
 }
