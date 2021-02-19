@@ -23,8 +23,10 @@ SpotifyからTrack Idをコピーし、検索できます。
 ## 使用技術
 
 - React
-- Scss
-- Firebase
+- React Audio Player
+- Spotify API
+- Sass
+- Firebase(Hosting)
 
 ### Run locally
 
