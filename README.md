@@ -6,7 +6,11 @@
 ## DEMO
 https://search-music-f43a5.web.app/
 
+分析結果
 ![Screen1](https://user-images.githubusercontent.com/57585657/108437400-970cfd00-7290-11eb-9b60-6101b82272ea.png)
+
+似ている曲の表示
+![Screen1](https://user-images.githubusercontent.com/57585657/108437409-9e340b00-7290-11eb-9293-9bccbe3ed771.png)
 
 ## Artist Search
 アーティスト名からアルバムを検索し、トラックから分析したい曲を選べます。
