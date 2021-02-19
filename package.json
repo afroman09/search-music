@@ -10,7 +10,6 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "firebase": "^8.2.7",
-    "homepage": "/build",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-audio-player": "^0.14.0",
