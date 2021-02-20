@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     color: "#1DB954",
     fontSize: "24px",
-    fontWeight: "700"
+    fontWeight: "700",
+    cursor: "pointer"
   },
   menuPaper: {
     backgroundColor: "#121212",

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import ReactAudioPlayer from "react-audio-player";
 import Style from "./SimilarPage.module.scss";
 
 const SimilarPage = (props) => {
@@ -47,7 +46,7 @@ const SimilarPage = (props) => {
   return (
     <div>
       <div className={Style.container}>
-        {similarTrack.map(({ id, artists, name, preview_url, album }) => (
+        {similarTrack.map(({ id, artists, name, album }) => (
           <div
             className={Style.wrapper}
             key={id}
@@ -55,14 +54,9 @@ const SimilarPage = (props) => {
           >
             <img src={album.images[1].url} alt="アルバム画像" />
             <div className={Style.textArea}>
-              <div className={Style.artistsName}>{artists[0].name}</div>
-              <div className={Style.trackName}>{name}</div>
+              <p className={Style.artistsName}>{artists[0].name}</p>
+              <p className={Style.trackName}>{name}</p>
             </div>
-            <ReactAudioPlayer
-              className={Style.audio}
-              src={preview_url}
-              controls
-            />
           </div>
         ))}
       </div>
