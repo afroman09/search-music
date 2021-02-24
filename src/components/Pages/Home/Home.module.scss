@@ -10,9 +10,9 @@
         margin: 0 auto;
         max-width: 80%;
         word-wrap: break-word;
+      }
     }
   }
-}
   .leftcontainer {
     padding-bottom: 50px;
   }
@@ -73,10 +73,6 @@
       -webkit-transition: all 0.3s;
       transition: all 0.3s;
       background-color: #1ed760;
-    }
-    ::before {
-      border: none;
-      outline: none;
     }
   }
   .textcontainer {
