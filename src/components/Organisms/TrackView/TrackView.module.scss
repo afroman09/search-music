@@ -5,6 +5,7 @@
     .imgWrapper {
       display: inline-block;
       vertical-align: middle;
+      margin: 0 10px;
     }
     .trackContents {
       display: inline-block;
@@ -37,9 +38,10 @@
     justify-content: space-between;
     margin: 0 10vh;
     // 左寄せにする
-    @media screen and (max-width: 575px) {
-      display: inline-block;
-      text-align: center;
+    @media screen and (max-width: 780px) {
+      display: inline-flex;
+      justify-content: center;
+      margin: 0;
     }
     .wrapper {
       padding: 10px;
@@ -47,9 +49,10 @@
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
       letter-spacing: 2px;
       width: 30vh;
-      @media screen and (max-width: 575px) {
+      @media screen and (max-width: 660px) {
         display: inline-block;
-        margin:  10px 0;
+        margin: 10px 10px;
+        width: 25vh;
       }
       &:hover {
         transition: all 0.3s;
@@ -59,11 +62,15 @@
       img {
         width: 25vh;
         height: 25vh;
+        @media screen and (max-width: 660px) {
+          width: 20vh;
+          height: 20vh;
+        }
       }
       p {
-        width: 25vh;
-        margin: 25px;
-        font-size: 14px;
+        width: 20vh;
+        margin: 20px;
+        font-size: 12px;
         text-align: left;
       }
     }
