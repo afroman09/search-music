@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TrackView from "../TrackView/TrackView";
+import Style from "./ArtistViex.module.scss";
 
 const ArtistView = (props) => {
   const [artistInformation, setArtistInformation] = useState([]);
@@ -42,7 +43,6 @@ const ArtistView = (props) => {
   );
 
   const trackView = (id) => {
-
     // GET ALBUM START
 
     axios(
@@ -67,7 +67,7 @@ const ArtistView = (props) => {
   return (
     <div>
       {artistInformation.map(({ name, id }) => (
-        <div key={id}>
+        <div key={id} className={Style.artistName}>
           <p onClick={() => trackView(id)}>{name}</p>
         </div>
       ))}

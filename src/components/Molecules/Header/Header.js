@@ -25,12 +25,13 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     color: "#1DB954",
     fontSize: "24px",
-    fontWeight: "700"
+    fontWeight: "700",
+    cursor: "pointer",
   },
   menuPaper: {
     backgroundColor: "#121212",
-    color: "#fff"
-  }
+    color: "#fff",
+  },
 }));
 
 export default function ButtonAppBar() {
@@ -91,13 +92,13 @@ export default function ButtonAppBar() {
             >
               アーティスト検索
             </MenuItem>
-              <MenuItem
-                onClick={() => {
-                  history.push(`/TrackIdSearch`);
-                }}
-              >
-                ID検索
-              </MenuItem>
+            <MenuItem
+              onClick={() => {
+                history.push(`/TrackIdSearch`);
+              }}
+            >
+              ID検索
+            </MenuItem>
           </Menu>
         </Toolbar>
       </AppBar>

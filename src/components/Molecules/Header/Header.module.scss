@@ -1,25 +1,17 @@
-.menu{
-    .menuButton{
-        color: #fff;
-    }
-.title {
-    text-decoration: none;
-    color: #1DB954;
-    font-size: 20px;
-&:hover{
-    cursor: pointer;
+.menu {
+  .menuButton {
+    color: #fff;
+  }
 }
-}
-}
-.list{
-    text-decoration: none;
-    width: 250px;
+.list {
+  text-decoration: none;
+  width: 250px;
 
-.menuText{
+  .menuText {
     text-decoration: none;
     color: #121212;
-&:hover{
-    cursor: pointer;
-}
-}
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }
