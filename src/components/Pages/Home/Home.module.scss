@@ -4,6 +4,11 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
   .title {
     padding: 100px 10px 50px 10px;
+    h1 {
+      span {
+        color: #1db954;
+      }
+    }
     .subTitle {
       @media screen and (max-width: 780px) {
         font-size: small;

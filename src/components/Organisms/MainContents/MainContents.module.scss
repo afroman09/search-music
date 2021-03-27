@@ -3,6 +3,7 @@
     padding: 100px 0 50px 0;
     display: block;
     text-align: center;
+    transition: 0.5s;
     @media screen and (max-width: 695px) {
       padding-bottom: 0;
     }
@@ -34,23 +35,23 @@
         }
         .trackName {
           color: #b3b3b3;
-          font-size: 20px ;
+          font-size: 20px;
           @media screen and (max-width: 656px) {
             text-align: center;
             font-size: 16px;
           }
         }
       }
-        ul {
-          list-style: none;
-          padding: 5px;
-          margin: 5px 0 20px 0;
-          font-size: 18px;
-          letter-spacing: 1px;
-          li{
-            margin-bottom: 2px;
-          }
+      ul {
+        list-style: none;
+        padding: 5px;
+        margin: 5px 0 20px 0;
+        font-size: 18px;
+        letter-spacing: 1px;
+        li {
+          margin-bottom: 2px;
         }
+      }
       .audio {
         margin-bottom: 30px;
         outline: none;

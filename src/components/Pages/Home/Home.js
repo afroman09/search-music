@@ -12,7 +12,9 @@ const Home = () => {
       <Header />
       <div className={Style.container}>
         <div className={Style.title}>
-          <h1>Welcom to SearchMusic</h1>
+          <h1>
+            Welcom to <span>Search Music</span>
+          </h1>
           <p className={Style.subTitle}>
             このアプリはあなたのお気に入りの曲を分析し、
             分析結果を元におすすめの曲を提案します
@@ -48,7 +50,7 @@ const Home = () => {
           <img className={Style.img} src={TopImg1} alt="画像" />
         </div>
         <div className={Style.textcontainer}>
-        <h2>分析情報について</h2>
+          <h2>分析情報について</h2>
           Spotify社が独自に分析している数値となります。
           <br />
           <img className={Style.img} src={TopImg3} alt="画像" />

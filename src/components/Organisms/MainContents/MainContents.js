@@ -30,6 +30,7 @@ const ContentsView = (props) => {
             className={Style.audio}
             src={props.searchContents.trackPreviewURL}
             controls
+            loop="true"
           />
         </div>
       </div>
