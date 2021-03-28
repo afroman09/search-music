@@ -9,12 +9,12 @@ const ArtistView = (props) => {
 
   /* アーティスト情報を取得 START */
 
-  const getArtist = () => {
+  const getArtist = async () => {
     // setTopTrack([]);
     setArtistInformation([]);
     setAlbum([]);
 
-    axios(
+    await axios(
       `https://api.spotify.com/v1/search?q=${props.artistTerm}&type=artist&limit=20`,
       {
         method: "GET",
@@ -42,10 +42,10 @@ const ArtistView = (props) => {
     [props.artistTerm]
   );
 
-  const trackView = (id) => {
+  const trackView = async (id) => {
     // GET ALBUM START
 
-    axios(
+    await axios(
       `https://api.spotify.com/v1/artists/${id}/albums?market=ES&limit=10`,
       {
         method: "GET",

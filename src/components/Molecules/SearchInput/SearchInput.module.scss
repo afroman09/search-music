@@ -5,17 +5,14 @@
   input {
     border: none;
     outline: none;
-    border-radius: 5vh;
-    width: 60vh;
+    border-radius: 2vh;
+    width: 80vh;
     height: 30px;
-    text-align: left;
     letter-spacing: 1px;
-    font-size: 14px;
-    margin: 0 5px;
     font-size: x-small;
     @media screen and (max-width: 700px) {
       width: 80%;
-      margin: 50px 0;
+      margin: 50px 0 10px 0;
     }
   }
   .btn {
@@ -31,9 +28,7 @@
     @media screen and (max-width: 700px) {
       display: block;
       margin: 10px auto;
-      width: 100px;
-      height: 3.2em;
-      font-size: x-small;
+      width: 200px;
     }
     &:hover {
       cursor: pointer;

@@ -4,6 +4,11 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), #121212);
   .title {
     padding: 100px 10px 50px 10px;
+    h1 {
+      span {
+        color: #1db954;
+      }
+    }
     .subTitle {
       @media screen and (max-width: 780px) {
         font-size: small;
@@ -27,8 +32,8 @@
     .righttextArea {
       display: inline-block;
       vertical-align: middle;
-      padding: 10px 0;
-      @media screen and (max-width: 780px) {
+      padding: 10px 50px;
+      @media screen and (max-width: 980px) {
         order: 1;
       }
     }
@@ -36,8 +41,8 @@
   .img {
     display: inline-block;
     padding: 20px 5px;
-    width: 470px;
-    height: 310px;
+    width: 600px;
+    height: 400px;
     vertical-align: middle;
     @media screen and (max-width: 780px) {
       width: 80%;
@@ -48,7 +53,7 @@
   .textArea {
     display: inline-block;
     vertical-align: middle;
-    padding: 10px;
+    padding: 10px　50px;
   }
   .btn {
     margin: 10px;
