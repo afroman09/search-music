@@ -10,12 +10,10 @@ const ContentsView = (props) => {
         <img className={Style.img} src={props.searchContents.trackImg} />
         <div className={Style.textArea}>
           <p className={Style.textContents}>
-            <div className={Style.artistsName}>
+            <p className={Style.artistsName}>
               {props.searchContents.artistName}
-            </div>
-            <div className={Style.trackName}>
-              {props.searchContents.trackName}
-            </div>
+            </p>
+            <p className={Style.trackName}>{props.searchContents.trackName}</p>
           </p>
           <ul>
             <li>danceability : {props.trackInformation.danceability}</li>
@@ -30,7 +28,7 @@ const ContentsView = (props) => {
             className={Style.audio}
             src={props.searchContents.trackPreviewURL}
             controls
-            loop="true"
+            loop={true}
           />
         </div>
       </div>
